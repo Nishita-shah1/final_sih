@@ -1,13 +1,11 @@
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 
-dotenv.config({ path: '../.env' }); // Load environment variables
-
+dotenv.config(); 
 type ConnectionObject = {
   isConnected?: number;
 };
 
-console.log(process.env.MONGODB_URL); // To check if it's loaded
 
 const connection: ConnectionObject = {};
 
@@ -18,7 +16,7 @@ async function dbConnect(): Promise<void> {
   }
 
   try {
-    const db = await mongoose.connect(process.env.MONGODB_URI || '', {});
+    const db = await mongoose.connect("mongodb+srv://nishitashah118:H5feFMZVDik2cJVY@cluster0.a4esr.mongodb.net/" );
     connection.isConnected = db.connections[0].readyState;
     console.log("DB connected successfully");
   } catch (error) {
@@ -27,6 +25,6 @@ async function dbConnect(): Promise<void> {
   }
 }
 
-dbConnect();
+
 
 export default dbConnect;

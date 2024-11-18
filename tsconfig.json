@@ -1,27 +1,40 @@
 {
   "compilerOptions": {
-    "target": "ES2017",  // ES6 or later
-    "lib": ["dom", "dom.iterable", "esnext"],  // Ensure compatibility with web APIs
-    "allowJs": true,  // Allow JS files in the project
-    "skipLibCheck": true,  // Skip library checks for faster compilation
-    "strict": true,  // Enable strict type checking
-    "noEmit": true,  // No files will be emitted (for ts-node)
-    "esModuleInterop": true,  // Interop with CommonJS modules
-    "module": "ESNext",  // Use ES module syntax
-    "moduleResolution": "node",  // Node module resolution
-    "resolveJsonModule": true,  // Support importing JSON modules
-    "isolatedModules": true,  // Isolate TS files
-    "jsx": "preserve",  // If using React JSX
-    "incremental": true,  // Enable incremental compilation
+    "target": "ES2017", // ES6 or later
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ], // Ensure compatibility with web APIs
+    "allowJs": true, // Allow JS files in the project
+    "skipLibCheck": true, // Skip library checks for faster compilation
+    "strict": true, // Enable strict type checking
+    "noEmit": true, // No files will be emitted (for ts-node)
+    "esModuleInterop": true, // Interop with CommonJS modules
+    "module": "ESNext", // Use ES module syntax
+    "moduleResolution": "node", // Node module resolution
+    "resolveJsonModule": true, // Support importing JSON modules
+    "isolatedModules": true, // Isolate TS files
+    "jsx": "preserve", // If using React JSX
+    "incremental": true, // Enable incremental compilation
     "paths": {
-      "@/*": ["./src/*"]  // Aliases for paths (if needed)
-    }
+      "@/*": [
+        "./src/*"
+      ] // Aliases for paths (if needed)
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
   "include": [
-    "next-env.d.ts",  // If using Next.js
-    "src/**/*.ts",    // Include all TypeScript files in the src folder
-    "src/**/*.tsx",   // If using React (JSX in TypeScript)
-    ".next/types/**/*.ts"  // Include Next.js types if used
+    "next-env.d.ts", // If using Next.js
+    "src/**/*.ts", // Include all TypeScript files in the src folder
+    "src/**/*.tsx", // If using React (JSX in TypeScript)
+    ".next/types/**/*.ts" // Include Next.js types if used
   ],
-  "exclude": ["node_modules"]  // Exclude node_modules directory
+  "exclude": [
+    "node_modules"
+  ] // Exclude node_modules directory
 }
