@@ -1,10 +1,12 @@
 import mongoose, { Schema, Document } from "mongoose";
 
+// Interface for individual message
 export interface Message extends Document {
   content: string;
   createdAt: Date;
 }
 
+// Schema for individual message
 const MessageSchema: Schema<Message> = new Schema({
   content: {
     type: String,
@@ -17,17 +19,33 @@ const MessageSchema: Schema<Message> = new Schema({
   },
 });
 
+interface FishData {
+  fish_name: string;
+  scientific_name:string;
+  date:Date;
+  longitude: number;
+  latitude: number;
+  catchweight:number;
+}
+// Interface for uploaded file
+interface UploadedFile {
+  filename: string;
+  data: FishData[];  // Use the FishData type to represent the rows
+}
+// Interface for user document
 export interface User extends Document {
   username: string;
   email: string;
   password: string;
   verifyCode: string;
   verifyCodeExpiry: Date;
-  isAcceptingMessages: boolean; // Updated to match the schema
+  isAcceptingMessages: boolean;
   isVerified: boolean;
   messages: Message[];
+  uploadedFiles?: UploadedFile[]; // Array of uploaded files (optional)
 }
 
+// Schema for user document
 const UserSchema: Schema<User> = new Schema({
   username: {
     type: String,
@@ -62,10 +80,19 @@ const UserSchema: Schema<User> = new Schema({
     default: false,
   },
   isAcceptingMessages: {
-    type: Boolean, // Fixed typo
+    type: Boolean,
     default: false,
   },
   messages: [MessageSchema], // Reference the MessageSchema
+  uploadedFiles: [
+    {
+      filename: {
+        type: String,
+        required: true,
+      },
+      data: { type: [String], required: true }, 
+    },
+  ],
 });
 
 const UserModel =

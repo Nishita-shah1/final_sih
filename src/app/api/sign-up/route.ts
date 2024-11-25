@@ -3,10 +3,7 @@ import UserModel from '@/model/User';
 import bcrypt from 'bcryptjs';
 import { sendVerificationEmail } from '@/helpers/sendVerificationEmail';
 
-
-
 export async function POST(request: Request) {
-  console.log(`POST request received at route: ${request.url}`);
   await dbConnect();
 
   try {
@@ -18,26 +15,26 @@ export async function POST(request: Request) {
     });
 
     if (existingVerifiedUserByUsername) {
-      return new Response(
-        JSON.stringify({
+      return Response.json(
+        {
           success: false,
           message: 'Username is already taken',
-        }),
-        { status: 400, headers: { 'Content-Type': 'application/json' } }
+        },
+        { status: 400 }
       );
     }
 
     const existingUserByEmail = await UserModel.findOne({ email });
-    const verifyCode = Math.floor(100000 + Math.random() * 900000).toString();
+    let verifyCode = Math.floor(100000 + Math.random() * 900000).toString();
 
     if (existingUserByEmail) {
       if (existingUserByEmail.isVerified) {
-        return new Response(
-          JSON.stringify({
+        return Response.json(
+          {
             success: false,
             message: 'User already exists with this email',
-          }),
-          { status: 400, headers: { 'Content-Type': 'application/json' } }
+          },
+          { status: 400 }
         );
       } else {
         const hashedPassword = await bcrypt.hash(password, 10);
@@ -61,7 +58,7 @@ export async function POST(request: Request) {
         isAcceptingMessages: true,
         messages: [],
       });
-
+      console.log('New user to be saved:', newUser);
       await newUser.save();
     }
 
@@ -71,39 +68,31 @@ export async function POST(request: Request) {
       username,
       verifyCode
     );
-    console.log("Verification email sent");
     if (!emailResponse.success) {
-      return new Response(
-        JSON.stringify({
+      return Response.json(
+        {
           success: false,
           message: emailResponse.message,
-        }),
-        
-        
-        { status: 500, headers: { 'Content-Type': 'application/json' } }
-        
-      )
-      console.log("Verification email  not sent");
-      
+        },
+        { status: 500 }
+      );
     }
 
-    return new Response(
-      JSON.stringify({
+    return Response.json(
+      {
         success: true,
         message: 'User registered successfully. Please verify your account.',
-      }),
-      { status: 201, headers: { 'Content-Type': 'application/json' } }
+      },
+      { status: 201 }
     );
   } catch (error) {
     console.error('Error registering user:', error);
-    return new Response(
-      JSON.stringify({
+    return Response.json(
+      {
         success: false,
         message: 'Error registering user',
-      }),
-      { status: 500, headers: { 'Content-Type': 'application/json' } }
+      },
+      { status: 500 }
     );
   }
 }
-
-

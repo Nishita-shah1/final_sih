@@ -1,7 +1,7 @@
 import {z} from "zod"
 
 export const signInSchema= z.object({
-    identifier: z.string().length(6, 'verification code must be 6 digits long'),
+    identifier: z.string().length(3, 'username must be 3 characters long'),
     password:z.string()
 })
 
