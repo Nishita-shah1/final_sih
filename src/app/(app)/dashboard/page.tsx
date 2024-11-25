@@ -1,9 +1,8 @@
-
-
 'use client';
 
 import React from 'react';
-import  UploadFile  from '@/components/UploadedFile'; // Import UploadFile component
+import UploadFile from '@/components/UploadedFile';
+ // Import UploadFile component
 
 const Dashboard: React.FC = () => {
   return (
