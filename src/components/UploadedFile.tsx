@@ -1,76 +1,64 @@
-'use client';
+// components/UploadedFile.tsx
 
 import React, { useState } from 'react';
 
-export const UploadFile: React.FC = () => {
+const UploadFile: React.FC = () => {
   const [file, setFile] = useState<File | null>(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  const [successMessage, setSuccessMessage] = useState<string | null>(null);
+  const [uploading, setUploading] = useState(false);
+  const [uploadSuccess, setUploadSuccess] = useState(false);
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      setFile(e.target.files[0]);
-      setError(null); // Clear error when a file is selected
-      setSuccessMessage(null); // Clear any success message
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.files) {
+      setFile(event.target.files[0]);
     }
   };
 
   const handleUpload = async () => {
     if (!file) {
-      alert('Please select a file first.');
+      alert('Please select a file to upload');
       return;
     }
-
-    setLoading(true);
-    setError(null); // Reset any previous errors
-    setSuccessMessage(null); // Reset success message
 
     const formData = new FormData();
     formData.append('file', file);
 
     try {
+      setUploading(true);
+      // Replace with your upload API endpoint
       const response = await fetch('/api/upload', {
         method: 'POST',
         body: formData,
       });
 
-      const responseText = await response.text(); // Get the response as plain text
-      console.log('Raw response:', responseText); // Log the raw response for debugging
-
       if (response.ok) {
-        // Only attempt to parse JSON if responseText is not empty
-        const responseData = responseText ? JSON.parse(responseText) : {};
-        setSuccessMessage('File uploaded successfully!');
+        setUploadSuccess(true);
+        alert('File uploaded successfully');
       } else {
-        const errorData = responseText || 'Unknown error';
-        setError(`Error: ${errorData}`);
+        alert('Error uploading file');
       }
-    } catch (err) {
-      console.error('Error uploading file:', err);
-      setError('An error occurred during the upload.');
+    } catch (error) {
+      alert('Error uploading file');
     } finally {
-      setLoading(false);
+      setUploading(false);
     }
   };
 
   return (
-    <div className="flex flex-col items-center">
-      <input
-        type="file"
-        accept=".csv"
-        onChange={handleFileChange}
-        className="mb-4"
-      />
-      {error && <div className="text-red-500">{error}</div>}
-      {successMessage && <div className="text-green-500">{successMessage}</div>}
+    <div>
+      <input type="file" onChange={handleFileChange} />
       <button
         onClick={handleUpload}
-        disabled={loading}
-        className="bg-blue-500 text-white px-4 py-2 rounded"
+        disabled={uploading}
+        className="mt-4 p-2 bg-blue-500 text-white rounded"
       >
-        {loading ? 'Uploading...' : 'Upload CSV'}
+        {uploading ? 'Uploading...' : 'Upload File'}
       </button>
+
+      {uploadSuccess && (
+        <div className="mt-4 text-green-500">File uploaded successfully!</div>
+      )}
     </div>
   );
 };
+
+export default UploadFile;
