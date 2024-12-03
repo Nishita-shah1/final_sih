@@ -243,14 +243,6 @@ const Page: React.FC = () => {
         <button onClick={clearFilters} className="bg-red-500 text-white px-4 py-2 rounded w-full">
           Clear Filters
         </button>
-        <div className="mt-4">
-          {/* <button
-            onClick={loadSampleData}
-            className="bg-blue-500 text-white px-4 py-2 rounded w-full"
-          >
-            Load Sample Data
-          </button> */}
-        </div>
       </aside>
 
       <main className="flex-1 ml-8">
@@ -283,28 +275,36 @@ const Page: React.FC = () => {
           </div>
         </div>
 
-        <div className="mt-8">
-          <table className="w-full border-collapse table-auto">
+        <div className="overflow-x-auto">
+          <table className="min-w-full bg-white border border-gray-300 rounded-md shadow">
             <thead>
               <tr>
-                <th className="border px-4 py-2">Fish Name</th>
-                <th className="border px-4 py-2">Scientific Name</th>
-                <th className="border px-4 py-2">Date</th>
-                <th className="border px-4 py-2">Depth</th>
-                <th className="border px-4 py-2">Longitude</th>
-                <th className="border px-4 py-2">Latitude</th>
+                <th className="border p-2">Fish Name</th>
+                <th className="border p-2">Scientific Name</th>
+                <th className="border p-2">Date</th>
+                <th className="border p-2">Depth</th>
+                <th className="border p-2">Longitude</th>
+                <th className="border p-2">Latitude</th>
               </tr>
             </thead>
             <tbody>
-              {filteredData.map((row, index) => (
-                <tr key={index}>
-                  {row.map((cell, cellIndex) => (
-                    <td key={cellIndex} className="border px-4 py-2">
-                      {cell}
-                    </td>
-                  ))}
+              {filteredData.length === 0 ? (
+                <tr>
+                  <td colSpan={6} className="border p-2 text-center">
+                    No data available
+                  </td>
                 </tr>
-              ))}
+              ) : (
+                filteredData.map((row, index) => (
+                  <tr key={index}>
+                    {row.map((cell, cellIndex) => (
+                      <td key={cellIndex} className="border p-2">
+                        {cell}
+                      </td>
+                    ))}
+                  </tr>
+                ))
+              )}
             </tbody>
           </table>
         </div>

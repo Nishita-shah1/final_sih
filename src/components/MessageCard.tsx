@@ -1,6 +1,4 @@
-'use client'
-
-import React, { useState } from 'react';
+import React from 'react';
 import axios, { AxiosError } from 'axios';
 import dayjs from 'dayjs';
 import { X } from 'lucide-react';
@@ -12,10 +10,10 @@ import {
   AlertDialogCancel,
   AlertDialogContent,
   AlertDialogDescription,
-  AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
+  AlertDialogFooter, // Ensure this is imported
 } from '@/components/ui/alert-dialog';
 import { Button } from './ui/button';
 import { useToast } from '@/components/ui/use-toast';

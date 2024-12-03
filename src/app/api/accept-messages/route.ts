@@ -1,7 +1,6 @@
 import { getServerSession } from 'next-auth/next';
 import { authOptions } from '../auth/[...nextauth]/options';
 
-
 import dbConnect from '@/lib/dbConnect';
 import UserModel from '@/model/User';
 import { User } from 'next-auth';
@@ -12,6 +11,7 @@ export async function POST(request: Request) {
 
   const session = await getServerSession(authOptions);
   const user: User = session?.user;
+
   if (!session || !session.user) {
     return Response.json(
       { success: false, message: 'Not authenticated' },
@@ -20,6 +20,8 @@ export async function POST(request: Request) {
   }
 
   const userId = user._id;
+  
+  // Extract acceptMessages from the request body
   const { acceptMessages } = await request.json();
 
   try {
@@ -58,7 +60,6 @@ export async function POST(request: Request) {
     );
   }
 }
-
 
 export async function GET(request: Request) {
   // Connect to the database

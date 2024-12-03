@@ -1,7 +1,6 @@
-'use client';
-
 import React, { useState, useEffect, useRef } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { Map as LeafletMap } from 'leaflet'; // Import Leaflet's Map type
 import L from 'leaflet';
 import Papa from 'papaparse';
 
@@ -27,7 +26,9 @@ export default function MapsWithFileUpload() {
   const [fileData, setFileData] = useState<DataRow[]>([]); // Stores uploaded data
   const [filter, setFilter] = useState('All'); // Current filter selection
   const [filteredData, setFilteredData] = useState<DataRow[]>([]); // Data displayed on the map
-  const mapRef = useRef<any>(null); // Store the map instance
+
+  // Type the ref for MapContainer explicitly as a LeafletMap
+  const mapRef = useRef<LeafletMap | null>(null); // Store the map instance, handling the null case
 
   // Handle file upload and parse
   const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {

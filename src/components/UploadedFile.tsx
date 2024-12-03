@@ -1,5 +1,3 @@
-// components/UploadedFile.tsx
-
 import React, { useState } from 'react';
 
 const UploadFile: React.FC = () => {
@@ -36,7 +34,7 @@ const UploadFile: React.FC = () => {
       } else {
         alert('Error uploading file');
       }
-    } catch (error) {
+    } catch {
       alert('Error uploading file');
     } finally {
       setUploading(false);

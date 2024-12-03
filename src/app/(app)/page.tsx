@@ -1,8 +1,3 @@
-'use client';
-
-import Image from 'next/image';
-import Link from 'next/link';
-import { Button } from '@/components/ui/button';
 import { Mail } from 'lucide-react'; // Assuming you have an icon for messages
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import Autoplay from 'embla-carousel-autoplay';
@@ -13,8 +8,6 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from '@/components/ui/carousel';
 
 export default function Home() {
@@ -60,7 +53,7 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="text-center p-4 md:p-6 bg-gray-900 text-white">
-      <p>The Ultimate Fisheries Data Hub Of India</p>
+        <p>The Ultimate Fisheries Data Hub Of India</p>
         <p>© 2023 AquaNidhi. All rights reserved.</p>
       </footer>
     </>

@@ -3,8 +3,6 @@ import CredentialsProvider from 'next-auth/providers/credentials';
 import bcrypt from 'bcryptjs';
 import dbConnect from '@/lib/dbConnect';
 import UserModel from '@/model/User';
-const NEXTAUTH_SECRET="wewillwin";
-
 
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -15,15 +13,16 @@ export const authOptions: NextAuthOptions = {
         email: { label: 'Email', type: 'text' },
         password: { label: 'Password', type: 'password' },
       },
-      async authorize(credentials: any): Promise<any> {
+      async authorize(credentials: { email: string; password: string }) {
         await dbConnect();
         try {
           const user = await UserModel.findOne({
             $or: [
-              { email: credentials.identifier },
-              { username: credentials.identifier },
+              { email: credentials.email },
+              { username: credentials.email },
             ],
-          });
+          }).lean(); // Convert Mongoose document to plain JavaScript object
+
           if (!user) {
             throw new Error('No user found with this email');
           }
@@ -35,12 +34,15 @@ export const authOptions: NextAuthOptions = {
             user.password
           );
           if (isPasswordCorrect) {
-            return user;
+            return user as any; // Return plain user object
           } else {
             throw new Error('Incorrect password');
           }
-        } catch (err: any) {
-          throw new Error(err);
+        } catch (err: unknown) {
+          if (err instanceof Error) {
+            throw new Error(err.message);
+          }
+          throw new Error('An unknown error occurred');
         }
       },
     }),
@@ -69,7 +71,6 @@ export const authOptions: NextAuthOptions = {
     strategy: 'jwt',
   },
   secret: process.env.NEXTAUTH_SECRET,
-  
   pages: {
     signIn: '/sign-in',
   },

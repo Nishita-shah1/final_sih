@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import fs from 'fs';
 import csvtojson from 'csvtojson';
-import { MongoClient } from 'mongodb';
+import { MongoClient, Db } from 'mongodb';
 
 // MongoDB connection details
 const url = "mongodb+srv://nishitashah118:H5feFMZVDik2cJVY@cluster0.a4esr.mongodb.net/";
@@ -30,11 +30,11 @@ const parseFormData = (req: NextApiRequest): Promise<Buffer> => {
 
 // MongoDB connection utility
 let cachedClient: MongoClient | null = null;
-let cachedDb: any = null;
+let cachedDb: Db | null = null;
 
 async function dbConnect() {
   if (cachedClient && cachedDb) {
-    return { client: cachedClient, db: cachedDb };
+    return { db: cachedDb };
   }
 
   const client = new MongoClient(url);
@@ -44,7 +44,7 @@ async function dbConnect() {
   cachedClient = client;
   cachedDb = db;
 
-  return { client, db };
+  return { db };
 }
 
 // Exported POST handler function
@@ -84,7 +84,7 @@ export async function POST(req: NextApiRequest, res: NextApiResponse) {
     console.log('Parsed data ready for insertion:', dataToInsert);
 
     // Connect to MongoDB and insert data
-    const { client, db } = await dbConnect();
+    const { db } = await dbConnect();
     const collection = db.collection(collectionName);
     await collection.insertMany(dataToInsert);
     console.log('Data successfully inserted into MongoDB');
