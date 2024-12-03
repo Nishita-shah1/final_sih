@@ -15,9 +15,9 @@ type Message = {
 };
 
 const CommunityPage: React.FC = () => {
-  const [users] = useState(mockUsers); // Removed setUsers since we don't need to modify users
+  const [users] = useState(mockUsers); 
   const [messages, setMessages] = useState<Message[]>([]);
-  const [currentUsername, setCurrentUsername] = useState<string>(''); // You can keep this for future use
+  const [currentUsername] = useState<string>(''); // You can keep this for future use
   const [selectedUser, setSelectedUser] = useState<string | null>(null);
   const [messageText, setMessageText] = useState<string>('');
 
