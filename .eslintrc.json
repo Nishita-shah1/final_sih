@@ -1,3 +1,18 @@
 {
-  "extends": ["next/core-web-vitals", "next/typescript"]
+  "extends": [
+    "next/core-web-vitals",
+    "next/typescript"
+  ],
+  "rules": {
+    "no-console": "off", // Optional: Disables 'console' warning
+    "next/no-page-custom-font": "off" // Optional: Disables page custom font warnings
+  },
+  "overrides": [
+    {
+      "files": ["next.config.js", "next.config.ts"],
+      "rules": {
+        "no-console": "off" // Disable 'console' rule in config files
+      }
+    }
+  ]
 }
