@@ -4,7 +4,7 @@ import bcrypt from 'bcryptjs';
 import dbConnect from '@/lib/dbConnect';
 import UserModel from '@/model/User';
 import { User } from '@/types/User';  // Import User type
-import { RequestInternal } from 'next-auth/core';  // Import RequestInternal type
+
 
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -17,7 +17,7 @@ export const authOptions: NextAuthOptions = {
       },
       async authorize(
         credentials: Record<'email' | 'password', string> | undefined,
-        req: Pick<RequestInternal, "body" | "query" | "headers" | "method"> // req added here
+      
       ): Promise<User | null> {
         await dbConnect();
         try {
