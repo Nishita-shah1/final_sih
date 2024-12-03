@@ -2,10 +2,11 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import fs from 'fs';
 import csvtojson from 'csvtojson';
 import { MongoClient } from 'mongodb';
-import dbConnect from '@/lib/dbConnect';
 
-import UserModel from '@/model/User';
-
+// MongoDB connection details
+const url = "mongodb+srv://nishitashah118:H5feFMZVDik2cJVY@cluster0.a4esr.mongodb.net/";
+const dbName = 'test';
+const collectionName = 'users';
 
 // Disable body parsing for file uploads
 export const config = {
