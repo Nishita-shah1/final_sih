@@ -3,10 +3,9 @@ import dbConnect from '@/lib/dbConnect';
 import { User } from 'next-auth';
 import { authOptions } from '../../auth/[...nextauth]/options';
 import UserModel from '@/model/User';
-import { NextRequest } from 'next/server';  // Import NextRequest for app directory
+
 
 export async function DELETE(
-  request: NextRequest,  // Use NextRequest for app directory
   { params }: { params: { messageid: string } }  // This is correct for dynamic route
 ) {
   const messageId = params.messageid;
