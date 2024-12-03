@@ -3,6 +3,8 @@ import CredentialsProvider from 'next-auth/providers/credentials';
 import bcrypt from 'bcryptjs';
 import dbConnect from '@/lib/dbConnect';
 import UserModel from '@/model/User';
+import { User } from '@/types/User';  // Import User type
+import { RequestInternal } from 'next-auth/core';  // Import RequestInternal type
 
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -13,13 +15,16 @@ export const authOptions: NextAuthOptions = {
         email: { label: 'Email', type: 'text' },
         password: { label: 'Password', type: 'password' },
       },
-      async authorize(credentials: { email: string; password: string }) {
+      async authorize(
+        credentials: Record<'email' | 'password', string> | undefined,
+        req: Pick<RequestInternal, "body" | "query" | "headers" | "method"> // req added here
+      ): Promise<User | null> {
         await dbConnect();
         try {
           const user = await UserModel.findOne({
             $or: [
-              { email: credentials.email },
-              { username: credentials.email },
+              { email: credentials?.email },
+              { username: credentials?.email },
             ],
           }).lean(); // Convert Mongoose document to plain JavaScript object
 
@@ -30,11 +35,14 @@ export const authOptions: NextAuthOptions = {
             throw new Error('Please verify your account before logging in');
           }
           const isPasswordCorrect = await bcrypt.compare(
-            credentials.password,
+            credentials?.password ?? '',
             user.password
           );
           if (isPasswordCorrect) {
-            return user as any; // Return plain user object
+            return {
+              ...user,
+              _id: user._id.toString(),  // Convert ObjectId to string
+            } as User;
           } else {
             throw new Error('Incorrect password');
           }
