@@ -38,7 +38,7 @@ export default function VerifyAccount() {
         description: response.data.message,
       });
 
-      router.replace('/dashboard');
+      router.replace('/fileUpload');
     } catch (error) {
       const axiosError = error as AxiosError<ApiResponse>;
       toast({

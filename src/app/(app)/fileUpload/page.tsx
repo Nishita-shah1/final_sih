@@ -1,5 +1,4 @@
 'use client';
-
 import React, { useState, useEffect, useMemo, ChangeEvent } from 'react';
 
 type FilterState = {
@@ -16,16 +15,6 @@ type FilterState = {
 };
 
 type DataRow = [string, string, string, string, string, string];
-
-const sampleData: DataRow[] = [
-  ['Tilapia', 'Oreochromis niloticus', '2024-02-14', '28.3', '74.485182', '9.419313'],
-  ['Pomfret', 'Pampus argenteus', '2024-06-06', '78.47', '73.044818', '9.237499'],
-  ['Hilsa', 'Tenualosa ilisha', '2024-09-02', '70.28', '86.148747', '9.352826'],
-  ['Pomfret', 'Pampus argenteus', '2024-10-15', '55.91', '96.712525', '29.450134'],
-  ['Catla', 'Catla catla', '2024-04-29', '6.58', '81.915818', '32.465435'],
-  ['Barramundi', 'Lates calcarifer', '2024-06-30', '28.0', '69.665409', '12.137997'],
-  ['Seer Fish', 'Scomberomorus guttatus', '2024-07-18', '15.47', '76.439121', '18.40571'],
-];
 
 const Page: React.FC = () => {
   const [csvData, setCsvData] = useState<DataRow[]>([]);
@@ -112,13 +101,27 @@ const Page: React.FC = () => {
     }
   };
 
-  const loadSampleData = () => {
+  const loadSampleData = async () => {
     try {
-      setCsvData(sampleData);
-      setFilteredData(sampleData);
+      const response = await fetch('/sampleData.json');
+      if (!response.ok) {
+        throw new Error('Failed to load sample data');
+      }
+      const data = await response.json();
+      const formattedData: DataRow[] = data.map((item: any) => [
+        item.fish_name,
+        item.scientific_name,
+        item.date,
+        item.depth,
+        item.longitude,
+        item.latitude,
+      ]);
+      setCsvData(formattedData);
+      setFilteredData(formattedData);
       setErrorMessage('');
     } catch (error) {
-      setGeneralError('An unexpected error occurred. Please reload it.');
+      setGeneralError('An unexpected error occurred while loading sample data. Please reload it.');
+      console.error(error);
     }
   };
 
@@ -218,7 +221,6 @@ const Page: React.FC = () => {
     ));
   };
 
-  // Function to download the filtered data as a CSV file
   const downloadCSV = () => {
     try {
       const csvContent = filteredData.map(row => row.join(',')).join('\n');
@@ -242,12 +244,12 @@ const Page: React.FC = () => {
           Clear Filters
         </button>
         <div className="mt-4">
-          <button
+          {/* <button
             onClick={loadSampleData}
             className="bg-blue-500 text-white px-4 py-2 rounded w-full"
           >
             Load Sample Data
-          </button>
+          </button> */}
         </div>
       </aside>
 
@@ -263,37 +265,49 @@ const Page: React.FC = () => {
           {isLoading && <div>Loading...</div>}
           {errorMessage && <div className="text-red-500">{errorMessage}</div>}
           {generalError && <div className="text-red-500">{generalError}</div>}
-          <button onClick={downloadCSV} className="bg-green-500 text-white px-4 py-2 rounded">
-            Download Filtered Data (CSV)
-          </button>
+
+          {/* Buttons grouped in a flex container */}
+          <div className="flex space-x-4 mt-4">
+            <button
+              onClick={downloadCSV}
+              className="bg-green-500 text-white px-4 py-2 rounded"
+            >
+              Download Filtered Data (CSV)
+            </button>
+            <button
+              onClick={loadSampleData}
+              className="bg-blue-500 text-white px-4 py-2 rounded"
+            >
+              Load Sample Data
+            </button>
+          </div>
         </div>
-        <table className="table-auto w-full mt-4 border-collapse">
-          <thead>
-            <tr>
-              <th className="border p-2">Fish Name</th>
-              <th className="border p-2">Scientific Name</th>
-              <th className="border p-2">Date</th>
-              <th className="border p-2">Depth</th>
-              <th className="border p-2">Longitude</th>
-              <th className="border p-2">Latitude</th>
-            </tr>
-          </thead>
-          <tbody>
-            {filteredData.length === 0 ? (
+
+        <div className="mt-8">
+          <table className="w-full border-collapse table-auto">
+            <thead>
               <tr>
-                <td colSpan={6} className="text-center py-4">No data available</td>
+                <th className="border px-4 py-2">Fish Name</th>
+                <th className="border px-4 py-2">Scientific Name</th>
+                <th className="border px-4 py-2">Date</th>
+                <th className="border px-4 py-2">Depth</th>
+                <th className="border px-4 py-2">Longitude</th>
+                <th className="border px-4 py-2">Latitude</th>
               </tr>
-            ) : (
-              filteredData.map((row, index) => (
+            </thead>
+            <tbody>
+              {filteredData.map((row, index) => (
                 <tr key={index}>
-                  {row.map((cell, idx) => (
-                    <td key={idx} className="border p-2">{cell}</td>
+                  {row.map((cell, cellIndex) => (
+                    <td key={cellIndex} className="border px-4 py-2">
+                      {cell}
+                    </td>
                   ))}
                 </tr>
-              ))
-            )}
-          </tbody>
-        </table>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </main>
     </div>
   );

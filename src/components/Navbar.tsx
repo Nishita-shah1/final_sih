@@ -17,6 +17,15 @@ export default function Navbar() {
           Aquanidhi
         </a>
 
+        {/* Navigation Links */}
+        <div className="flex items-center space-x-6 mb-4 md:mb-0">
+          <Link href="/" className="text-white hover:text-slate-100">Home</Link>
+          <Link href="/fileUpload" className="text-white hover:text-slate-100">Table</Link>
+          <Link href="/gallery" className="text-white hover:text-slate-100">Gallery</Link>
+          <Link href="/maps" className="text-white hover:text-slate-100">Maps</Link>
+          <Link href="/community" className="text-white hover:text-slate-100">Community</Link>
+        </div>
+
         {/* Conditional rendering for session state */}
         <div className="flex items-center space-x-4">
           {session ? (
