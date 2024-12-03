@@ -4,23 +4,19 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
 import { signIn } from 'next-auth/react';
-import {
-  Form,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@/components/ui/form';
-
+import { Form, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useToast } from '@/components/ui/use-toast';
 import { signInSchema } from '@/schemas/signInSchema';
+import { useState } from 'react';
 
 export default function SignInForm() {
   const router = useRouter();
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false); // For loading state
 
   const form = useForm<z.infer<typeof signInSchema>>({
     resolver: zodResolver(signInSchema),
@@ -30,13 +26,15 @@ export default function SignInForm() {
     },
   });
 
-  const { toast } = useToast();
   const onSubmit = async (data: z.infer<typeof signInSchema>) => {
+    setIsSubmitting(true); // Set loading state to true
     const result = await signIn('credentials', {
       redirect: false,
       identifier: data.identifier,
       password: data.password,
     });
+
+    setIsSubmitting(false); // Set loading state to false once done
 
     if (result?.error) {
       if (result.error === 'CredentialsSignin') {
@@ -57,6 +55,11 @@ export default function SignInForm() {
     if (result?.url) {
       router.replace('/fileUpload');
     }
+  };
+
+  // Skip handler to redirect to upload file
+  const handleSkip = () => {
+    router.push('/fileUpload');
   };
 
   return (
@@ -92,7 +95,16 @@ export default function SignInForm() {
                 </FormItem>
               )}
             />
-            <Button className='w-full' type="submit">Sign In</Button>
+            <Button
+              className="w-full"
+              type="submit"
+              disabled={isSubmitting} // Disable button during submission
+            >
+              {isSubmitting ? 'Signing in...' : 'Sign In'}
+            </Button>
+            <Button className="w-full mt-4" type="button" onClick={handleSkip}>
+              Skip and Go to Upload File
+            </Button>
           </form>
         </Form>
         <div className="text-center mt-4">

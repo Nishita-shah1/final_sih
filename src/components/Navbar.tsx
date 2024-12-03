@@ -18,32 +18,44 @@ export default function Navbar() {
         </a>
 
         {/* Conditional rendering for session state */}
-        {session ? (
-          <div className="flex items-center space-x-4">
-            {/* Display username or email */}
-            <span className="mr-4">
-              Welcome, {user?.name || user?.email || 'User'}
-            </span>
-            {/* Logout button */}
+        <div className="flex items-center space-x-4">
+          {session ? (
+            <>
+              {/* Display username or email */}
+              <span className="mr-4">
+                Welcome, {user?.name || user?.email || 'User'}
+              </span>
+              {/* Logout button */}
+              <Button
+                onClick={() => signOut()}
+                className="w-full md:w-auto bg-slate-100 text-black"
+                variant="outline"
+              >
+                Logout
+              </Button>
+            </>
+          ) : (
+            // Login button if no session exists
+            <Link href="/sign-in">
+              <Button
+                className="w-full md:w-auto bg-slate-100 text-black"
+                variant="outline"
+              >
+                Login
+              </Button>
+            </Link>
+          )}
+
+          {/* Get Started button (always visible) */}
+          <Link href="/fileUpload">
             <Button
-              onClick={() => signOut()}
               className="w-full md:w-auto bg-slate-100 text-black"
               variant="outline"
             >
-              Logout
-            </Button>
-          </div>
-        ) : (
-          /* Login button if no session exists */
-          <Link href="/sign-in">
-            <Button
-              className="w-full md:w-auto bg-slate-100 text-black"
-              variant="outline"
-            >
-              Login
+              Get Started
             </Button>
           </Link>
-        )}
+        </div>
       </div>
     </nav>
   );

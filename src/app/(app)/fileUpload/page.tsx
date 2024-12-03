@@ -32,6 +32,7 @@ const Page: React.FC = () => {
   const [filteredData, setFilteredData] = useState<DataRow[]>([]);
   const [errorMessage, setErrorMessage] = useState<string>('');
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [generalError, setGeneralError] = useState<string | null>(null);
 
   const [filters, setFilters] = useState<FilterState>({
     fishName: '',
@@ -47,54 +48,78 @@ const Page: React.FC = () => {
   });
 
   useEffect(() => {
-    const savedData = localStorage.getItem('csvData');
-    if (savedData) {
-      const parsedData = JSON.parse(savedData) as DataRow[];
-      setCsvData(parsedData);
-      setFilteredData(parsedData);
+    try {
+      const savedData = localStorage.getItem('csvData');
+      if (savedData) {
+        const parsedData = JSON.parse(savedData) as DataRow[];
+        setCsvData(parsedData);
+        setFilteredData(parsedData);
+      }
+    } catch (error) {
+      setGeneralError('An unexpected error occurred. Please reload it.');
+      console.error(error);
     }
   }, []);
 
   useEffect(() => {
-    if (csvData.length > 0) {
-      localStorage.setItem('csvData', JSON.stringify(csvData));
+    try {
+      if (csvData.length > 0) {
+        localStorage.setItem('csvData', JSON.stringify(csvData));
+      }
+    } catch (error) {
+      setGeneralError('An unexpected error occurred. Please reload it.');
+      console.error(error);
     }
   }, [csvData]);
 
   const handleFileUpload = (event: ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (!file) {
-      setErrorMessage('Please select a file.');
-      return;
-    }
-    if (!file.name.endsWith('.csv')) {
-      setErrorMessage('Please upload a valid CSV file.');
-      return;
-    }
+    try {
+      const file = event.target.files?.[0];
+      if (!file) {
+        setErrorMessage('Please select a file.');
+        return;
+      }
+      if (!file.name.endsWith('.csv')) {
+        setErrorMessage('Please upload a valid CSV file.');
+        return;
+      }
 
-    setIsLoading(true);
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      const text = e.target?.result as string;
-      const rows = text
-        .split('\n')
-        .map((row) => row.split(',').map((cell) => cell.trim())) as DataRow[];
-      setCsvData(rows);
-      setFilteredData(rows);
-      setErrorMessage('');
+      setIsLoading(true);
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        try {
+          const text = e.target?.result as string;
+          const rows = text
+            .split('\n')
+            .map((row) => row.split(',').map((cell) => cell.trim())) as DataRow[];
+          setCsvData(rows);
+          setFilteredData(rows);
+          setErrorMessage('');
+        } catch (error) {
+          setGeneralError('Error parsing CSV data. Please reload it.');
+        }
+        setIsLoading(false);
+      };
+      reader.onerror = () => {
+        setIsLoading(false);
+        setGeneralError('Error reading the file. Please reload it.');
+      };
+      reader.readAsText(file);
+    } catch (error) {
       setIsLoading(false);
-    };
-    reader.onerror = () => {
-      setErrorMessage('Error reading file.');
-      setIsLoading(false);
-    };
-    reader.readAsText(file);
+      setGeneralError('An unexpected error occurred. Please reload it.');
+      console.error('Error occurred during file upload:', error);
+    }
   };
 
   const loadSampleData = () => {
-    setCsvData(sampleData);
-    setFilteredData(sampleData);
-    setErrorMessage('');
+    try {
+      setCsvData(sampleData);
+      setFilteredData(sampleData);
+      setErrorMessage('');
+    } catch (error) {
+      setGeneralError('An unexpected error occurred. Please reload it.');
+    }
   };
 
   const handleFilterChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -105,41 +130,62 @@ const Page: React.FC = () => {
     }));
   };
 
-  const filteredResults = useMemo(() => {
-    return csvData.filter(([fishName, scientificName, date, depth, longitude, latitude]) => {
-      const matchFishName = filters.fishName
-        ? fishName.toLowerCase().includes(filters.fishName.toLowerCase())
-        : true;
-
-      const matchScientificName = filters.scientificName
-        ? scientificName.toLowerCase().includes(filters.scientificName.toLowerCase())
-        : true;
-
-      const matchDate =
-        (!filters.startDate || date >= filters.startDate) &&
-        (!filters.endDate || date <= filters.endDate);
-
-      const matchLongitude =
-        (!filters.startLongitude || parseFloat(longitude) >= parseFloat(filters.startLongitude)) &&
-        (!filters.endLongitude || parseFloat(longitude) <= parseFloat(filters.endLongitude));
-
-      const matchLatitude =
-        (!filters.startLatitude || parseFloat(latitude) >= parseFloat(filters.startLatitude)) &&
-        (!filters.endLatitude || parseFloat(latitude) <= parseFloat(filters.endLatitude));
-
-      const matchDepth =
-        (!filters.startDepth || parseFloat(depth) >= parseFloat(filters.startDepth)) &&
-        (!filters.endDepth || parseFloat(depth) <= parseFloat(filters.endDepth));
-
-      return (
-        matchFishName &&
-        matchScientificName &&
-        matchDate &&
-        matchLongitude &&
-        matchLatitude &&
-        matchDepth
-      );
+  const clearFilters = () => {
+    setFilters({
+      fishName: '',
+      scientificName: '',
+      startDate: '',
+      endDate: '',
+      startLongitude: '',
+      endLongitude: '',
+      startLatitude: '',
+      endLatitude: '',
+      startDepth: '',
+      endDepth: '',
     });
+  };
+
+  const filteredResults = useMemo(() => {
+    try {
+      return csvData.filter(([fishName, scientificName, date, depth, longitude, latitude]) => {
+        const matchFishName = filters.fishName
+          ? fishName.toLowerCase().includes(filters.fishName.toLowerCase())
+          : true;
+
+        const matchScientificName = filters.scientificName
+          ? scientificName.toLowerCase().includes(filters.scientificName.toLowerCase())
+          : true;
+
+        const matchDate =
+          (!filters.startDate || date >= filters.startDate) &&
+          (!filters.endDate || date <= filters.endDate);
+
+        const matchLongitude =
+          (!filters.startLongitude || parseFloat(longitude) >= parseFloat(filters.startLongitude)) &&
+          (!filters.endLongitude || parseFloat(longitude) <= parseFloat(filters.endLongitude));
+
+        const matchLatitude =
+          (!filters.startLatitude || parseFloat(latitude) >= parseFloat(filters.startLatitude)) &&
+          (!filters.endLatitude || parseFloat(latitude) <= parseFloat(filters.endLatitude));
+
+        const matchDepth =
+          (!filters.startDepth || parseFloat(depth) >= parseFloat(filters.startDepth)) &&
+          (!filters.endDepth || parseFloat(depth) <= parseFloat(filters.endDepth));
+
+        return (
+          matchFishName &&
+          matchScientificName &&
+          matchDate &&
+          matchLongitude &&
+          matchLatitude &&
+          matchDepth
+        );
+      });
+    } catch (error) {
+      setGeneralError('An error occurred while filtering data. Please reload it.');
+      console.error(error);
+      return [];
+    }
   }, [csvData, filters]);
 
   useEffect(() => {
@@ -167,56 +213,87 @@ const Page: React.FC = () => {
         type={type}
         placeholder={placeholder}
         onChange={handleFilterChange}
-        className="border p-2 mb-2 w-full"
+        className="border p-2 mb-2 w-full rounded-md"
       />
     ));
   };
 
+  // Function to download the filtered data as a CSV file
+  const downloadCSV = () => {
+    try {
+      const csvContent = filteredData.map(row => row.join(',')).join('\n');
+      const blob = new Blob([csvContent], { type: 'text/csv' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = 'filtered_data.csv';
+      link.click();
+    } catch (error) {
+      setGeneralError('An unexpected error occurred while downloading the file. Please reload it.');
+      console.error(error);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gray-100 p-8 flex">
-      <aside className="w-1/4 bg-white shadow p-4">
+      <aside className="w-1/4 bg-white shadow p-4 rounded-lg">
         <h2 className="text-lg font-bold mb-4">Filters</h2>
         {renderFilters()}
-      </aside>
-
-      <main className="w-3/4 px-4">
-        <div className="flex items-center mb-4">
-          <input type="file" accept=".csv" onChange={handleFileUpload} className="mr-4" />
-          <button onClick={loadSampleData} className="bg-blue-500 text-white px-4 py-2">
-            Use Sample Data
+        <button onClick={clearFilters} className="bg-red-500 text-white px-4 py-2 rounded w-full">
+          Clear Filters
+        </button>
+        <div className="mt-4">
+          <button
+            onClick={loadSampleData}
+            className="bg-blue-500 text-white px-4 py-2 rounded w-full"
+          >
+            Load Sample Data
           </button>
         </div>
-        {errorMessage && <p className="text-red-500 mb-4">{errorMessage}</p>}
+      </aside>
 
-        {isLoading ? (
-          <p>Loading...</p>
-        ) : filteredData.length > 0 ? (
-          <table className="w-full border-collapse border border-gray-300">
-            <thead>
+      <main className="flex-1 ml-8">
+        <h1 className="text-2xl font-bold mb-4">Fish Catch Data</h1>
+        <div className="mb-4">
+          <input
+            type="file"
+            accept=".csv"
+            onChange={handleFileUpload}
+            className="mb-4"
+          />
+          {isLoading && <div>Loading...</div>}
+          {errorMessage && <div className="text-red-500">{errorMessage}</div>}
+          {generalError && <div className="text-red-500">{generalError}</div>}
+          <button onClick={downloadCSV} className="bg-green-500 text-white px-4 py-2 rounded">
+            Download Filtered Data (CSV)
+          </button>
+        </div>
+        <table className="table-auto w-full mt-4 border-collapse">
+          <thead>
+            <tr>
+              <th className="border p-2">Fish Name</th>
+              <th className="border p-2">Scientific Name</th>
+              <th className="border p-2">Date</th>
+              <th className="border p-2">Depth</th>
+              <th className="border p-2">Longitude</th>
+              <th className="border p-2">Latitude</th>
+            </tr>
+          </thead>
+          <tbody>
+            {filteredData.length === 0 ? (
               <tr>
-                <th className="border p-2">Fish Name</th>
-                <th className="border p-2">Scientific Name</th>
-                <th className="border p-2">Date</th>
-                <th className="border p-2">Depth</th>
-                <th className="border p-2">Longitude</th>
-                <th className="border p-2">Latitude</th>
+                <td colSpan={6} className="text-center py-4">No data available</td>
               </tr>
-            </thead>
-            <tbody>
-              {filteredData.map((row, index) => (
+            ) : (
+              filteredData.map((row, index) => (
                 <tr key={index}>
-                  {row.map((cell, cellIndex) => (
-                    <td key={cellIndex} className="border p-2">
-                      {cell}
-                    </td>
+                  {row.map((cell, idx) => (
+                    <td key={idx} className="border p-2">{cell}</td>
                   ))}
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        ) : (
-          <p>No results found. Try adjusting your filters.</p>
-        )}
+              ))
+            )}
+          </tbody>
+        </table>
       </main>
     </div>
   );

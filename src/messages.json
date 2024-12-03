@@ -1,17 +1,52 @@
 [
-    {
-      "title": "Message from User123",
-      "content": "Hey, how are you doing today?",
-      "received": "10 minutes ago"
-    },
-    {
-      "title": "Message from SecretAdmirer",
-      "content": "I really liked your recent post!",
-      "received": "2 hours ago"
-    },
-    {
-      "title": "Message from MysteryGuest",
-      "content": "Do you have any book recommendations?",
-      "received": "1 day ago"
-    }
-  ]
+  {
+    "title": "India's Position in Global Fish Production",
+    "content": "India is the second-largest fish producer in the world, contributing over 7.5% to global fish production.",
+    "received": "10 minutes ago"
+  },
+  {
+    "title": "The Role of the National Fisheries Development Board (NFDB)",
+    "content": "The National Fisheries Development Board (NFDB) in India acts as a centralized hub for fisheries data, promoting sustainable fishing practices!",
+    "received": "2 hours ago"
+  },
+  {
+    "title": "Community-Based Fishing in India States",
+    "content": "In Kerala, community-based fishing practices like those in Chilika Lake ensure sustainable harvesting through shared fishing rights among local families.",
+    "received": "1 day ago"
+  },
+  {
+    "title": "India's Contribution to Global Shrimp Export",
+    "content": "India is the largest exporter of shrimp globally, accounting for over 25% of the world's total shrimp exports.",
+    "received": "3 hours ago"
+  },
+  {
+    "title": "Marine and Inland Fisheries Production",
+    "content": "India’s fish production comes equally from marine and inland sectors, with both contributing nearly 50% each to the national output.",
+    "received": "4 hours ago"
+  },
+  {
+    "title": "Fisheries and Rural Employment in India",
+    "content": "Around 14 million people in India are directly involved in fishing, providing livelihood to a large portion of the rural population.",
+    "received": "6 hours ago"
+  },
+  {
+    "title": "Fisheries in India's Northeast Region",
+    "content": "The Northeast region of India, particularly Assam, is known for its diverse freshwater fish species, which form a significant part of local diets.",
+    "received": "7 hours ago"
+  },
+  {
+    "title": "Impact of Fish Farming in India",
+    "content": "Fish farming, especially in states like Andhra Pradesh, has significantly boosted India's fish production, making it a key player in the aquaculture sector.",
+    "received": "8 hours ago"
+  },
+  {
+    "title": "Technological Advancements in India's Fisheries",
+    "content": "India is investing in technology such as satellite monitoring and data analytics to improve the sustainability and efficiency of its fisheries industry.",
+    "received": "9 hours ago"
+  },
+  {
+    "title": "Fish Exports to Neighboring Countries",
+    "content": "India exports fish and seafood to several neighboring countries, with significant trade in Bangladesh, the Maldives, and Sri Lanka.",
+    "received": "10 hours ago"
+  }
+]
