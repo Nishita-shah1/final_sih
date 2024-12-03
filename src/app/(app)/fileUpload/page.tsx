@@ -37,68 +37,56 @@ const Page: React.FC = () => {
   });
 
   useEffect(() => {
-    try {
-      const savedData = localStorage.getItem('csvData');
-      if (savedData) {
+    const savedData = localStorage.getItem('csvData');
+    if (savedData) {
+      try {
         const parsedData = JSON.parse(savedData) as DataRow[];
         setCsvData(parsedData);
         setFilteredData(parsedData);
+      } catch {
+        setGeneralError('An unexpected error occurred while loading saved data.');
       }
-    } catch (error) {
-      setGeneralError('An unexpected error occurred. Please reload it.');
-      console.error(error);
     }
   }, []);
 
   useEffect(() => {
-    try {
-      if (csvData.length > 0) {
-        localStorage.setItem('csvData', JSON.stringify(csvData));
-      }
-    } catch (error) {
-      setGeneralError('An unexpected error occurred. Please reload it.');
-      console.error(error);
+    if (csvData.length > 0) {
+      localStorage.setItem('csvData', JSON.stringify(csvData));
     }
   }, [csvData]);
 
   const handleFileUpload = (event: ChangeEvent<HTMLInputElement>) => {
-    try {
-      const file = event.target.files?.[0];
-      if (!file) {
-        setErrorMessage('Please select a file.');
-        return;
-      }
-      if (!file.name.endsWith('.csv')) {
-        setErrorMessage('Please upload a valid CSV file.');
-        return;
-      }
-
-      setIsLoading(true);
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        try {
-          const text = e.target?.result as string;
-          const rows = text
-            .split('\n')
-            .map((row) => row.split(',').map((cell) => cell.trim())) as DataRow[];
-          setCsvData(rows);
-          setFilteredData(rows);
-          setErrorMessage('');
-        } catch (error) {
-          setGeneralError('Error parsing CSV data. Please reload it.');
-        }
-        setIsLoading(false);
-      };
-      reader.onerror = () => {
-        setIsLoading(false);
-        setGeneralError('Error reading the file. Please reload it.');
-      };
-      reader.readAsText(file);
-    } catch (error) {
-      setIsLoading(false);
-      setGeneralError('An unexpected error occurred. Please reload it.');
-      console.error('Error occurred during file upload:', error);
+    const file = event.target.files?.[0];
+    if (!file) {
+      setErrorMessage('Please select a file.');
+      return;
     }
+    if (!file.name.endsWith('.csv')) {
+      setErrorMessage('Please upload a valid CSV file.');
+      return;
+    }
+
+    setIsLoading(true);
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      try {
+        const text = e.target?.result as string;
+        const rows = text
+          .split('\n')
+          .map((row) => row.split(',').map((cell) => cell.trim())) as DataRow[];
+        setCsvData(rows);
+        setFilteredData(rows);
+        setErrorMessage('');
+      } catch {
+        setGeneralError('Error parsing CSV data.');
+      }
+      setIsLoading(false);
+    };
+    reader.onerror = () => {
+      setIsLoading(false);
+      setGeneralError('Error reading the file.');
+    };
+    reader.readAsText(file);
   };
 
   const loadSampleData = async () => {
@@ -107,8 +95,8 @@ const Page: React.FC = () => {
       if (!response.ok) {
         throw new Error('Failed to load sample data');
       }
-      const data = await response.json();
-      const formattedData: DataRow[] = data.map((item: any) => [
+      const data: Array<{ fish_name: string; scientific_name: string; date: string; depth: string; longitude: string; latitude: string }> = await response.json();
+      const formattedData: DataRow[] = data.map((item) => [
         item.fish_name,
         item.scientific_name,
         item.date,
@@ -119,9 +107,8 @@ const Page: React.FC = () => {
       setCsvData(formattedData);
       setFilteredData(formattedData);
       setErrorMessage('');
-    } catch (error) {
-      setGeneralError('An unexpected error occurred while loading sample data. Please reload it.');
-      console.error(error);
+    } catch {
+      setGeneralError('An error occurred while loading sample data.');
     }
   };
 
@@ -184,9 +171,8 @@ const Page: React.FC = () => {
           matchDepth
         );
       });
-    } catch (error) {
-      setGeneralError('An error occurred while filtering data. Please reload it.');
-      console.error(error);
+    } catch {
+      setGeneralError('An error occurred while filtering data.');
       return [];
     }
   }, [csvData, filters]);
@@ -223,15 +209,14 @@ const Page: React.FC = () => {
 
   const downloadCSV = () => {
     try {
-      const csvContent = filteredData.map(row => row.join(',')).join('\n');
+      const csvContent = filteredData.map((row) => row.join(',')).join('\n');
       const blob = new Blob([csvContent], { type: 'text/csv' });
       const link = document.createElement('a');
       link.href = URL.createObjectURL(blob);
       link.download = 'filtered_data.csv';
       link.click();
-    } catch (error) {
-      setGeneralError('An unexpected error occurred while downloading the file. Please reload it.');
-      console.error(error);
+    } catch {
+      setGeneralError('An error occurred while downloading the file.');
     }
   };
 
@@ -258,7 +243,6 @@ const Page: React.FC = () => {
           {errorMessage && <div className="text-red-500">{errorMessage}</div>}
           {generalError && <div className="text-red-500">{generalError}</div>}
 
-          {/* Buttons grouped in a flex container */}
           <div className="flex space-x-4 mt-4">
             <button
               onClick={downloadCSV}
@@ -274,40 +258,30 @@ const Page: React.FC = () => {
             </button>
           </div>
         </div>
-
-        <div className="overflow-x-auto">
-          <table className="min-w-full bg-white border border-gray-300 rounded-md shadow">
-            <thead>
-              <tr>
-                <th className="border p-2">Fish Name</th>
-                <th className="border p-2">Scientific Name</th>
-                <th className="border p-2">Date</th>
-                <th className="border p-2">Depth</th>
-                <th className="border p-2">Longitude</th>
-                <th className="border p-2">Latitude</th>
+        <table className="table-auto w-full">
+          <thead>
+            <tr>
+              <th>Fish Name</th>
+              <th>Scientific Name</th>
+              <th>Date</th>
+              <th>Depth</th>
+              <th>Longitude</th>
+              <th>Latitude</th>
+            </tr>
+          </thead>
+          <tbody>
+            {filteredData.map(([fishName, scientificName, date, depth, longitude, latitude], index) => (
+              <tr key={index}>
+                <td>{fishName}</td>
+                <td>{scientificName}</td>
+                <td>{date}</td>
+                <td>{depth}</td>
+                <td>{longitude}</td>
+                <td>{latitude}</td>
               </tr>
-            </thead>
-            <tbody>
-              {filteredData.length === 0 ? (
-                <tr>
-                  <td colSpan={6} className="border p-2 text-center">
-                    No data available
-                  </td>
-                </tr>
-              ) : (
-                filteredData.map((row, index) => (
-                  <tr key={index}>
-                    {row.map((cell, cellIndex) => (
-                      <td key={cellIndex} className="border p-2">
-                        {cell}
-                      </td>
-                    ))}
-                  </tr>
-                ))
-              )}
-            </tbody>
-          </table>
-        </div>
+            ))}
+          </tbody>
+        </table>
       </main>
     </div>
   );
