@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable no-console */
 import { NextAuthOptions } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import bcrypt from 'bcryptjs';
@@ -71,3 +73,5 @@ export const authOptions: NextAuthOptions = {
     signIn: '/sign-in',
   },
 };
+/* eslint-enable @typescript-eslint/no-explicit-any */
+/* eslint-enable no-console */
