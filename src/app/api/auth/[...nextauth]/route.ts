@@ -4,7 +4,7 @@ import { authOptions } from './options';
 
 const handler = NextAuth({
   ...authOptions,
-  secret: process.env.NEXTAUTH_SECRET, 
+  secret: process.env.SECRET, 
 });
 
 export { handler as GET, handler as POST };
