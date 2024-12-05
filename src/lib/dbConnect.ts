@@ -5,6 +5,7 @@ dotenv.config();
 type ConnectionObject = {
   isConnected?: number;
 };
+console.log(process.env.MONGODB_URL);
 
 
 const connection: ConnectionObject = {};
@@ -16,7 +17,7 @@ async function dbConnect(): Promise<void> {
   }
 
   try {
-    const db = await mongoose.connect(process.env.MONGODB_URL as string);
+    const db = await mongoose.connect("mongodb+srv://nishitashah118:H5feFMZVDik2cJVY@cluster0.a4esr.mongodb.net/test");
 
     connection.isConnected = db.connections[0].readyState;
     console.log("DB connected successfully");
