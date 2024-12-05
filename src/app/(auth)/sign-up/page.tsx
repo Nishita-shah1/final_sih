@@ -5,7 +5,9 @@ import Link from 'next/link';
 import { useEffect, useState, useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 import { debounce } from 'lodash';
+
 import * as z from 'zod';
+
 import { Button } from '@/components/ui/button';
 import {
   Form,
@@ -39,14 +41,15 @@ export default function SignUpForm() {
     },
   });
 
+  // Function to check username uniqueness
   const checkUsernameUnique = useCallback(
     debounce(async (debouncedUsername: string) => {
       if (debouncedUsername) {
         setIsCheckingUsername(true);
-        setUsernameMessage('');
+        setUsernameMessage(''); // Reset message
         try {
           const response = await axios.get<ApiResponse>(
-            `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/check-username-unique?username=${debouncedUsername}`
+            `/api/check-username-unique?username=${debouncedUsername}`
           );
           setUsernameMessage(response.data.message);
         } catch (error) {
@@ -63,15 +66,13 @@ export default function SignUpForm() {
   );
 
   useEffect(() => {
-    if (username) {
-      checkUsernameUnique(username);
-    }
-  }, [username]);
+    checkUsernameUnique(username); // Call debounced function
+  }, [username, checkUsernameUnique]);
 
   const onSubmit = async (data: z.infer<typeof signUpSchema>) => {
     setIsSubmitting(true);
     try {
-      const response = await axios.post<ApiResponse>(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/sign-up`, data);
+      const response = await axios.post<ApiResponse>('/api/sign-up', data);
 
       toast({
         title: 'Success',
@@ -79,10 +80,14 @@ export default function SignUpForm() {
       });
 
       router.replace(`/verify/${username}`);
+
+      setIsSubmitting(false);
     } catch (error) {
       console.error('Error during sign-up:', error);
 
       const axiosError = error as AxiosError<ApiResponse>;
+
+      // Default error message
       const errorMessage = axiosError.response?.data.message ?? 'There was a problem with your sign-up. Please try again.';
 
       toast({
@@ -90,7 +95,7 @@ export default function SignUpForm() {
         description: errorMessage,
         variant: 'destructive',
       });
-    } finally {
+
       setIsSubmitting(false);
     }
   };
@@ -99,7 +104,9 @@ export default function SignUpForm() {
     <div className="flex justify-center items-center min-h-screen bg-gray-800">
       <div className="w-full max-w-md p-8 space-y-8 bg-white rounded-lg shadow-md">
         <div className="text-center">
-          <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl mb-6">Join AquaNidhi</h1>
+          <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl mb-6">
+            Join AquaNidhi
+          </h1>
           <p className="mb-4">Sign up to start your anonymous adventure</p>
         </div>
         <Form {...form}>
@@ -121,7 +128,9 @@ export default function SignUpForm() {
                   {!isCheckingUsername && usernameMessage && (
                     <p
                       className={`text-sm ${
-                        usernameMessage === 'Username is unique' ? 'text-green-500' : 'text-red-500'
+                        usernameMessage === 'Username is unique'
+                          ? 'text-green-500'
+                          : 'text-red-500'
                       }`}
                     >
                       {usernameMessage}
@@ -138,11 +147,14 @@ export default function SignUpForm() {
                 <FormItem>
                   <FormLabel>Email</FormLabel>
                   <Input {...field} name="email" />
-                  <p className="text-muted text-gray-400 text-sm">We will send you a verification code</p>
+                  <p className="text-muted text-gray-400 text-sm">
+                    We will send you a verification code
+                  </p>
                   <FormMessage />
                 </FormItem>
               )}
             />
+
             <FormField
               name="password"
               control={form.control}
@@ -154,12 +166,15 @@ export default function SignUpForm() {
                 </FormItem>
               )}
             />
-            <Button
-              type="submit"
-              className="w-full"
-              disabled={isSubmitting || !form.formState.isValid || usernameMessage !== 'Username is unique'}
-            >
-              {isSubmitting ? <><Loader2 className="mr-2 h-4 w-4 animate-spin" /> Please wait</> : 'Sign Up'}
+            <Button type="submit" className="w-full" disabled={isSubmitting}>
+              {isSubmitting ? (
+                <>
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  Please wait
+                </>
+              ) : (
+                'Sign Up'
+              )}
             </Button>
           </form>
         </Form>

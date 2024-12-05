@@ -3,8 +3,6 @@ import CredentialsProvider from 'next-auth/providers/credentials';
 import bcrypt from 'bcryptjs';
 import dbConnect from '@/lib/dbConnect';
 import UserModel from '@/model/User';
-import { User } from '@/types/User';  // Import User type
-
 
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -15,19 +13,15 @@ export const authOptions: NextAuthOptions = {
         email: { label: 'Email', type: 'text' },
         password: { label: 'Password', type: 'password' },
       },
-      async authorize(
-        credentials: Record<'email' | 'password', string> | undefined,
-      
-      ): Promise<User | null> {
+      async authorize(credentials: any): Promise<any> {
         await dbConnect();
         try {
           const user = await UserModel.findOne({
             $or: [
-              { email: credentials?.email },
-              { username: credentials?.email },
+              { email: credentials.identifier },
+              { username: credentials.identifier },
             ],
-          }).lean(); // Convert Mongoose document to plain JavaScript object
-
+          });
           if (!user) {
             throw new Error('No user found with this email');
           }
@@ -35,22 +29,16 @@ export const authOptions: NextAuthOptions = {
             throw new Error('Please verify your account before logging in');
           }
           const isPasswordCorrect = await bcrypt.compare(
-            credentials?.password ?? '',
+            credentials.password,
             user.password
           );
           if (isPasswordCorrect) {
-            return {
-              ...user,
-              _id: user._id.toString(),  // Convert ObjectId to string
-            } as User;
+            return user;
           } else {
             throw new Error('Incorrect password');
           }
-        } catch (err: unknown) {
-          if (err instanceof Error) {
-            throw new Error(err.message);
-          }
-          throw new Error('An unknown error occurred');
+        } catch (err: any) {
+          throw new Error(err);
         }
       },
     }),
@@ -78,7 +66,7 @@ export const authOptions: NextAuthOptions = {
   session: {
     strategy: 'jwt',
   },
-  secret: process.env.SECRET,
+  secret: process.env.NEXTAUTH_SECRET,
   pages: {
     signIn: '/sign-in',
   },
