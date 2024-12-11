@@ -3,18 +3,15 @@ import React, { useState, useEffect, useMemo, ChangeEvent } from 'react';
 
 type FilterState = {
   fishName: string;
-  scientificName: string;
-  startDate: string;
-  endDate: string;
+  date: string;
   startLongitude: string;
   endLongitude: string;
   startLatitude: string;
   endLatitude: string;
-  startDepth: string;
-  endDepth: string;
+  village: string;
 };
 
-type DataRow = [string, string, string, string, string, string];
+type DataRow = [string, string, string, string, string, string, string]; // Adjusted for new data structure
 
 const Page: React.FC = () => {
   const [csvData, setCsvData] = useState<DataRow[]>([]);
@@ -25,15 +22,12 @@ const Page: React.FC = () => {
 
   const [filters, setFilters] = useState<FilterState>({
     fishName: '',
-    scientificName: '',
-    startDate: '',
-    endDate: '',
+    date: '',
     startLongitude: '',
     endLongitude: '',
     startLatitude: '',
     endLatitude: '',
-    startDepth: '',
-    endDepth: '',
+    village: '',
   });
 
   useEffect(() => {
@@ -89,29 +83,6 @@ const Page: React.FC = () => {
     reader.readAsText(file);
   };
 
-  const loadSampleData = async () => {
-    try {
-      const response = await fetch('/sampleData.json');
-      if (!response.ok) {
-        throw new Error('Failed to load sample data');
-      }
-      const data: Array<{ fish_name: string; scientific_name: string; date: string; depth: string; longitude: string; latitude: string }> = await response.json();
-      const formattedData: DataRow[] = data.map((item) => [
-        item.fish_name,
-        item.scientific_name,
-        item.date,
-        item.depth,
-        item.longitude,
-        item.latitude,
-      ]);
-      setCsvData(formattedData);
-      setFilteredData(formattedData);
-      setErrorMessage('');
-    } catch {
-      setGeneralError('An error occurred while loading sample data.');
-    }
-  };
-
   const handleFilterChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setFilters((prevFilters) => ({
@@ -123,32 +94,23 @@ const Page: React.FC = () => {
   const clearFilters = () => {
     setFilters({
       fishName: '',
-      scientificName: '',
-      startDate: '',
-      endDate: '',
+      date: '',
       startLongitude: '',
       endLongitude: '',
       startLatitude: '',
       endLatitude: '',
-      startDepth: '',
-      endDepth: '',
+      village: '',
     });
   };
 
   const filteredResults = useMemo(() => {
     try {
-      return csvData.filter(([fishName, scientificName, date, depth, longitude, latitude]) => {
+      return csvData.filter(([fishName, date, longitude, latitude, catchWeight, village, gearType]) => {
         const matchFishName = filters.fishName
           ? fishName.toLowerCase().includes(filters.fishName.toLowerCase())
           : true;
 
-        const matchScientificName = filters.scientificName
-          ? scientificName.toLowerCase().includes(filters.scientificName.toLowerCase())
-          : true;
-
-        const matchDate =
-          (!filters.startDate || date >= filters.startDate) &&
-          (!filters.endDate || date <= filters.endDate);
+        const matchDate = filters.date ? date === filters.date : true;
 
         const matchLongitude =
           (!filters.startLongitude || parseFloat(longitude) >= parseFloat(filters.startLongitude)) &&
@@ -158,17 +120,16 @@ const Page: React.FC = () => {
           (!filters.startLatitude || parseFloat(latitude) >= parseFloat(filters.startLatitude)) &&
           (!filters.endLatitude || parseFloat(latitude) <= parseFloat(filters.endLatitude));
 
-        const matchDepth =
-          (!filters.startDepth || parseFloat(depth) >= parseFloat(filters.startDepth)) &&
-          (!filters.endDepth || parseFloat(depth) <= parseFloat(filters.endDepth));
+        const matchVillage = filters.village
+          ? village.toLowerCase().includes(filters.village.toLowerCase())
+          : true;
 
         return (
           matchFishName &&
-          matchScientificName &&
           matchDate &&
           matchLongitude &&
           matchLatitude &&
-          matchDepth
+          matchVillage
         );
       });
     } catch {
@@ -184,15 +145,12 @@ const Page: React.FC = () => {
   const renderFilters = () => {
     const filterFields: { name: keyof FilterState; placeholder: string; type?: string }[] = [
       { name: 'fishName', placeholder: 'Fish Name' },
-      { name: 'scientificName', placeholder: 'Scientific Name' },
-      { name: 'startDate', placeholder: 'Start Date', type: 'date' },
-      { name: 'endDate', placeholder: 'End Date', type: 'date' },
+      { name: 'date', placeholder: 'Date', type: 'date' },
       { name: 'startLongitude', placeholder: 'Start Longitude' },
       { name: 'endLongitude', placeholder: 'End Longitude' },
       { name: 'startLatitude', placeholder: 'Start Latitude' },
       { name: 'endLatitude', placeholder: 'End Latitude' },
-      { name: 'startDepth', placeholder: 'Start Depth' },
-      { name: 'endDepth', placeholder: 'End Depth' },
+      { name: 'village', placeholder: 'Village' },
     ];
 
     return filterFields.map(({ name, placeholder, type = 'text' }) => (
@@ -232,55 +190,20 @@ const Page: React.FC = () => {
 
       <main className="flex-1 ml-8">
         <h1 className="text-2xl font-bold mb-4">Fish Catch Data</h1>
-        <div className="mb-4">
-          <input
-            type="file"
-            accept=".csv"
-            onChange={handleFileUpload}
-            className="mb-4"
-          />
-          {isLoading && <div>Loading...</div>}
-          {errorMessage && <div className="text-red-500">{errorMessage}</div>}
-          {generalError && <div className="text-red-500">{generalError}</div>}
-
-          <div className="flex space-x-4 mt-4">
-            <button
-              onClick={downloadCSV}
-              className="bg-green-500 text-white px-4 py-2 rounded"
-            >
-              Download Filtered Data (CSV)
-            </button>
-            <button
-              onClick={loadSampleData}
-              className="bg-blue-500 text-white px-4 py-2 rounded"
-            >
-              Load Sample Data
-            </button>
-          </div>
-        </div>
+        <input type="file" accept=".csv" onChange={handleFileUpload} className="mb-4" />
         <table className="table-auto w-full">
           <thead>
             <tr>
-              <th>Fish Name</th>
-              <th>Scientific Name</th>
-              <th>Date</th>
-              <th>Depth</th>
-              <th>Longitude</th>
+              <th>pfs</th>
+              <th>date</th>
               <th>Latitude</th>
+              <th>Longitude</th>
+              <th>depth</th>
+              <th>species name</th>
+              <th>amount</th>
             </tr>
           </thead>
-          <tbody>
-            {filteredData.map(([fishName, scientificName, date, depth, longitude, latitude], index) => (
-              <tr key={index}>
-                <td>{fishName}</td>
-                <td>{scientificName}</td>
-                <td>{date}</td>
-                <td>{depth}</td>
-                <td>{longitude}</td>
-                <td>{latitude}</td>
-              </tr>
-            ))}
-          </tbody>
+          <tbody>{filteredData.map((row, index) => <tr key={index}>{row.map(cell => <td>{cell}</td>)}</tr>)}</tbody>
         </table>
       </main>
     </div>
@@ -288,3 +211,4 @@ const Page: React.FC = () => {
 };
 
 export default Page;
+//village one

@@ -28,6 +28,6 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "src/app/(app)/maps/server.tsx", "src/app/api/saveData/route.js"  ],
   "exclude": ["node_modules"]
 }
