@@ -12,6 +12,7 @@ export async function GET() {
 
     const data = await collection.find({}).toArray();
 
+    // Return data in the response
     return NextResponse.json({ data }, { status: 200 });
   } catch (error) {
     console.error('Error in GET:', error);
