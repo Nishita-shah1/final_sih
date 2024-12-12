@@ -1,3 +1,4 @@
+/* eslint-disable */
 'use client';
 
 import React from 'react';
@@ -19,15 +20,16 @@ export default function Navbar() {
 
         {/* Navigation Links */}
         <div className="flex items-center space-x-6 mb-4 md:mb-0">
-          <Link href="/" className="text-white hover:text-slate-100">Home</Link>
+
           <Link href="/AdminDashboard" className="text-white hover:text-slate-100">Dashboard</Link>
           <Link href="/fileUpload" className="text-white hover:text-slate-100">PFZ</Link>
 
-          <Link href="/village" className="text-white hover:text-slate-100">villagedata</Link>
-          <Link href="/table3" className="text-white hover:text-slate-100">capacity</Link>
+          <Link href="/village" className="text-white hover:text-slate-100">Village data</Link>
+          <Link href="/cap_fres_charts" className="text-white hover:text-slate-100">Occurrance</Link>
           <Link href="/gallery" className="text-white hover:text-slate-100">Gallery</Link>
-          <Link href="/maps" className="text-white hover:text-slate-100">Maps</Link>
+          <Link href="https://maps-seven-rho.vercel.app/" className="text-white hover:text-slate-100">Maps</Link>
           <Link href="/community" className="text-white hover:text-slate-100">Community</Link>
+          <Link href="/common" className="text-white hover:text-slate-100">Species specific</Link>
 
 
 
@@ -39,7 +41,8 @@ export default function Navbar() {
             <>
               {/* Display username or email */}
               <span className="mr-4">
-                Welcome, {user?.name || user?.email || 'User'}
+                
+                
               </span>
               {/* Logout button */}
               <Button
