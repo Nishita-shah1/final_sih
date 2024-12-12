@@ -23,7 +23,7 @@ export default function Navbar() {
           <Link href="/AdminDashboard" className="text-white hover:text-slate-100">Dashboard</Link>
           <Link href="/fileUpload" className="text-white hover:text-slate-100">PFZ</Link>
 
-          <Link href="/villagedata" className="text-white hover:text-slate-100">villagedata</Link>
+          <Link href="/village" className="text-white hover:text-slate-100">villagedata</Link>
           <Link href="/table3" className="text-white hover:text-slate-100">capacity</Link>
           <Link href="/gallery" className="text-white hover:text-slate-100">Gallery</Link>
           <Link href="/maps" className="text-white hover:text-slate-100">Maps</Link>
