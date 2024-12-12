@@ -32,6 +32,18 @@ const ProfileCard: React.FC = () => {
     if (action === "Community") {
       router.replace("/community"); // Navigate to AdminDashboard
     }
+    if (action === "Fetch data") {
+      router.replace("/fetchdata"); // Navigate to AdminDashboard
+    }
+    if (action === "PFZ Module") {
+      router.replace("/pfz"); // Navigate to AdminDashboard
+    }
+    if (action === "Village Module") {
+      router.replace("/village"); // Navigate to AdminDashboard
+    }
+    if (action === "Landing Site Module") {
+      router.replace("/landingSite"); // Navigate to AdminDashboard
+    }
     // Add logic for other actions if needed
   };
 
@@ -40,7 +52,7 @@ const ProfileCard: React.FC = () => {
       <div className="bg-blue-50 rounded-lg shadow-lg p-6 flex flex-col items-center gap-4">
         <div className="w-40 h-40 rounded-full bg-blue-200 flex justify-center items-center">
           <img
-            src="path-to-placeholder-profile-image"
+            src="person.png"
             alt="Profile"
             className="w-full h-full rounded-full object-cover"
           />
@@ -53,7 +65,7 @@ const ProfileCard: React.FC = () => {
             <strong>Name:</strong> Loading...
           </p>
           <p>
-            <strong>Role:</strong> Loading...
+            <strong>Role:</strong> Admin
           </p>
           <p>
             <strong>Email:</strong> Loading...
@@ -62,11 +74,12 @@ const ProfileCard: React.FC = () => {
         <div className="flex flex-col w-full gap-2">
           {[
             "Upload new files",
-            // "Update Data",
-            // "Version Control",
-            // "Manage Access",
+            "Fetch data",
+            "PFZ Module",
+            "Village Module",
+            "Landing Site Module",
             "Gallery",
-            "Community",
+            "Community","Map",
           ].map((action) => (
             <button
               key={action}

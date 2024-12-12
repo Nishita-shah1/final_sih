@@ -1,17 +1,14 @@
 /* eslint-disable */
-
 "use client";
 import React, { useState, ChangeEvent, useMemo } from 'react';
 
-type FileData = { [key: string]: string }; // This will hold the parsed data from each file
+type FileData = string[]; // Each row will be an array of strings representing cell values
 
 const Page: React.FC = () => {
   const [fileData1, setFileData1] = useState<FileData[]>([]); // Store data from File 1
   const [fileData2, setFileData2] = useState<FileData[]>([]); // Store data from File 2
   const [fileData3, setFileData3] = useState<FileData[]>([]); // Store data from File 3
-  const [allColumns, setAllColumns] = useState<string[]>([]); // Store all columns
   const [mergedData, setMergedData] = useState<FileData[]>([]); // Store merged data
-  const [filters, setFilters] = useState<{ [key: string]: string }>({}); // Store column filters
   const [errorMessage, setErrorMessage] = useState<string>(''); // Store error message
   const [isLoading, setIsLoading] = useState<boolean>(false); // Loading state
   const [showTable, setShowTable] = useState<boolean>(false); // Track when to display table
@@ -53,17 +50,7 @@ const Page: React.FC = () => {
         const text = e.target?.result as string;
         const rows = text.split('\n').map((row) => row.split(',').map((cell) => cell.trim()));
 
-        // Extract header and data rows
-        const header = rows[0];
-        const data = rows.slice(1).map((row) => {
-          const rowData: FileData = {};
-          row.forEach((value, index) => {
-            rowData[header[index]] = value;
-          });
-          return rowData;
-        });
-
-        setData(data);
+        setData(rows);
         setErrorMessage('');
       } catch {
         setErrorMessage('Error parsing CSV data.');
@@ -77,30 +64,20 @@ const Page: React.FC = () => {
     reader.readAsText(file);
   };
 
-  // Merge the data based on all unique columns
+  // Merge the data from all files horizontally
   const mergeData = useMemo(() => {
-    // Collect all unique columns from the three files
-    const allCols = Array.from(
-      new Set([
-        ...Object.keys(fileData1[0] || {}),
-        ...Object.keys(fileData2[0] || {}),
-        ...Object.keys(fileData3[0] || {}),
-      ])
-    );
-    setAllColumns(allCols);
+    // Concatenate data horizontally (side-by-side)
+    const maxLength = Math.max(fileData1.length, fileData2.length, fileData3.length);
+    const merged = [];
 
-    // Merge data from all three files based on the columns
-    const merged = [
-      ...fileData1,
-      ...fileData2,
-      ...fileData3,
-    ].map((row) => {
-      const mergedRow: FileData = {};
-      allCols.forEach((col) => {
-        mergedRow[col] = row[col] ?? '0'; // Fill missing data with "0"
-      });
-      return mergedRow;
-    });
+    for (let i = 0; i < maxLength; i++) {
+      const row1 = fileData1[i] || [];
+      const row2 = fileData2[i] || [];
+      const row3 = fileData3[i] || [];
+
+      // Combine all the rows side by side
+      merged.push([...row1, ...row2, ...row3]);
+    }
 
     setMergedData(merged);
   }, [fileData1, fileData2, fileData3]);
@@ -114,7 +91,7 @@ const Page: React.FC = () => {
     }
   };
 
-  // Render the table to show the merged data
+  // Render the table to show the merged data horizontally
   const renderTable = () => {
     if (!mergedData.length) {
       return <div>No data available to display.</div>;
@@ -124,16 +101,23 @@ const Page: React.FC = () => {
       <table className="border-collapse table-auto w-full">
         <thead>
           <tr>
-            {allColumns.map((header) => (
-              <th key={header} className="border p-2">{header}</th>
+            {/* Dynamically create headers based on the files uploaded */}
+            {fileData1[0] && fileData1[0].map((_, index) => (
+              <th key={`file1-column-${index}`} className="border p-2">File 1 Column {index + 1}</th>
+            ))}
+            {fileData2[0] && fileData2[0].map((_, index) => (
+              <th key={`file2-column-${index}`} className="border p-2">File 2 Column {index + 1}</th>
+            ))}
+            {fileData3[0] && fileData3[0].map((_, index) => (
+              <th key={`file3-column-${index}`} className="border p-2">File 3 Column {index + 1}</th>
             ))}
           </tr>
         </thead>
         <tbody>
           {mergedData.map((row, index) => (
             <tr key={index}>
-              {allColumns.map((header) => (
-                <td key={header} className="border p-2">{row[header]}</td>
+              {row.map((cell, cellIndex) => (
+                <td key={cellIndex} className="border p-2">{cell}</td>
               ))}
             </tr>
           ))}
@@ -166,7 +150,7 @@ const Page: React.FC = () => {
 
       {showTable && (
         <div>
-          <h3>All Columns Merged Data:</h3>
+          <h3>All Data Merged Horizontally:</h3>
           {renderTable()}
         </div>
       )}
