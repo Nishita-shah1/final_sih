@@ -1,0 +1,209 @@
+[
+    {
+        "Species name": "sail.fish",
+        "Date": "2023-03-04",
+        "Catch (kg)": "30000",
+        "Landing Name": "Ernakulam",
+        "Gear type": "Hook and Line",
+        "Latitude": "72.44534203684512",
+        "Longitude": "10.115415924884914"
+    },
+    {
+        "Species name": "yellowfin.tuna",
+        "Date": "2023-03-04",
+        "Catch (kg)": "50000",
+        "Landing Name": "Ernakulam",
+        "Gear type": "Hook and Line",
+        "Latitude": "72.44534203684512",
+        "Longitude": "10.115415924884914"
+    },
+    {
+        "Species name": "yellowfin.tuna",
+        "Date": "2023-11-04",
+        "Catch (kg)": "8000",
+        "Landing Name": "Kanniyakumari",
+        "Gear type": "Hook and Line",
+        "Latitude": "72.3352509281127",
+        "Longitude": "9.867151072718316"
+    },
+    {
+        "Species name": "skipjack.tuna",
+        "Date": "2023-10-03",
+        "Catch (kg)": "20000",
+        "Landing Name": "Ernakulam",
+        "Gear type": "Hook and Line",
+        "Latitude": "73.14730557360946",
+        "Longitude": "9.133000144498594"
+    },
+    {
+        "Species name": "blue.marlin",
+        "Date": "2023-02-22",
+        "Catch (kg)": "30000",
+        "Landing Name": "Ernakulam",
+        "Gear type": "Hook and Line",
+        "Latitude": "75.17016024275331",
+        "Longitude": "8.595857501662927"
+    },
+    {
+        "Species name": "sail.fish",
+        "Date": "2023-02-22",
+        "Catch (kg)": "30274",
+        "Landing Name": "Ernakulam",
+        "Gear type": "Hook and Line",
+        "Latitude": "75.17016024275331",
+        "Longitude": "8.595857501662927"
+    },
+    {
+        "Species name": "skipjack.tuna",
+        "Date": "2023-02-22",
+        "Catch (kg)": "26630",
+        "Landing Name": "Ernakulam",
+        "Gear type": "Hook and Line",
+        "Latitude": "75.17016024275331",
+        "Longitude": "8.595857501662927"
+    },
+    {
+        "Species name": "sword.fish",
+        "Date": "2023-02-22",
+        "Catch (kg)": "17000",
+        "Landing Name": "Ernakulam",
+        "Gear type": "Hook and Line",
+        "Latitude": "75.17016024275331",
+        "Longitude": "8.595857501662927"
+    },
+    {
+        "Species name": "blue.marlin",
+        "Date": "2023-03-20",
+        "Catch (kg)": "16000",
+        "Landing Name": "Ernakulam",
+        "Gear type": "Gill Net",
+        "Latitude": "75.89968863013966",
+        "Longitude": "8.786212966992398"
+    },
+    {
+        "Species name": "sail.fish",
+        "Date": "2023-03-20",
+        "Catch (kg)": "10000",
+        "Landing Name": "Ernakulam",
+        "Gear type": "Gill Net",
+        "Latitude": "75.89968863013966",
+        "Longitude": "8.786212966992398"
+    },
+    {
+        "Species name": "yellowfin.tuna",
+        "Date": "2023-03-20",
+        "Catch (kg)": "10000",
+        "Landing Name": "Ernakulam",
+        "Gear type": "Gill Net",
+        "Latitude": "75.89968863013966",
+        "Longitude": "8.786212966992398"
+    },
+    {
+        "Species name": "yellowfin.tuna",
+        "Date": "2023-03-27",
+        "Catch (kg)": "19900",
+        "Landing Name": "Kochi",
+        "Gear type": "Gill Net",
+        "Latitude": "76.23660093896542",
+        "Longitude": "7.749358853507546"
+    },
+    {
+        "Species name": "squid",
+        "Date": "2023-01-03",
+        "Catch (kg)": "100000",
+        "Landing Name": "Chinnamuttom",
+        "Gear type": "Bottom Trawling",
+        "Latitude": "76.88995906826392",
+        "Longitude": "8.01408172518835"
+    },
+    {
+        "Species name": "yellowfin.tuna",
+        "Date": "2023-10-03",
+        "Catch (kg)": "14000",
+        "Landing Name": "Ernakulam",
+        "Gear type": "Hook and Line",
+        "Latitude": "77.13541180834099",
+        "Longitude": "8.338875727499918"
+    },
+    {
+        "Species name": "yellow.trevally",
+        "Date": "2023-03-17",
+        "Catch (kg)": "25000",
+        "Landing Name": "Kanniyakumari",
+        "Gear type": "Ring Net",
+        "Latitude": "77.12889245946185",
+        "Longitude": "8.129812940194405"
+    },
+    {
+        "Species name": "white.tuna",
+        "Date": "2023-05-03",
+        "Catch (kg)": "25000",
+        "Landing Name": "Kochi",
+        "Gear type": "Gill Net",
+        "Latitude": "77.073816813205",
+        "Longitude": "8.092512772978301"
+    },
+    {
+        "Species name": "ribbon.fish",
+        "Date": "2023-02-23",
+        "Catch (kg)": "12000",
+        "Landing Name": "Kanniyakumari",
+        "Gear type": "Trawler",
+        "Latitude": "77.28713727902897",
+        "Longitude": "7.362387372549604"
+    },
+    {
+        "Species name": "yellowfin.tuna",
+        "Date": "2023-01-17",
+        "Catch (kg)": "14500",
+        "Landing Name": "Ernakulam",
+        "Gear type": "Gill Net",
+        "Latitude": "77.51999235996001",
+        "Longitude": "7.5830937822804785"
+    },
+    {
+        "Species name": "malabar.trevally",
+        "Date": "2023-04-03",
+        "Catch (kg)": "10000",
+        "Landing Name": "Kanniyakumari",
+        "Gear type": "Gill Net",
+        "Latitude": "77.2925483003811",
+        "Longitude": "7.851252602922941"
+    },
+    {
+        "Species name": "skipjack.tuna",
+        "Date": "2023-04-03",
+        "Catch (kg)": "10000",
+        "Landing Name": "Kanniyakumari",
+        "Gear type": "Gill Net",
+        "Latitude": "77.2925483003811",
+        "Longitude": "7.851252602922941"
+    },
+    {
+        "Species name": "skipjack.tuna",
+        "Date": "2023-02-22",
+        "Catch (kg)": "26630",
+        "Landing Name": "Kovalam Kanniyakumarai",
+        "Gear type": "Hook and Line",
+        "Latitude": "77.54581288826846",
+        "Longitude": "7.424171196978113"
+    },
+    {
+        "Species name": "yellowfin.tuna",
+        "Date": "2023-03-14",
+        "Catch (kg)": "10000",
+        "Landing Name": "Kanniyakumari",
+        "Gear type": "Gill Net",
+        "Latitude": "77.92843015107609",
+        "Longitude": "7.732145486691653"
+    },
+    {
+        "Species name": "blue.marlin",
+        "Date": "2023-03-24",
+        "Catch (kg)": "27000",
+        "Landing Name": "Ernakulam",
+        "Gear type": "Hook and Line",
+        "Latitude": "78.0988734596026",
+        "Longitude": "7.868993612344738"
+    }
+]

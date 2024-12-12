@@ -1,0 +1,2036 @@
+[
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2009-02-19 00:00:00",
+        "Latitude": "18.4552777777777",
+        "Longitude": "84.4311111111111",
+        "Depth": "52",
+        "Species name": "ribbon.fish",
+        "Amount": "200"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2009-02-19 00:00:00",
+        "Latitude": "18.4552777777777",
+        "Longitude": "84.4311111111111",
+        "Depth": "52",
+        "Species name": "pony.fish",
+        "Amount": "90"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2009-02-19 00:00:00",
+        "Latitude": "18.4552777777777",
+        "Longitude": "84.4311111111111",
+        "Depth": "52",
+        "Species name": "nemipterids",
+        "Amount": "50"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2009-02-19 00:00:00",
+        "Latitude": "18.4552777777777",
+        "Longitude": "84.4311111111111",
+        "Depth": "52",
+        "Species name": "goat.fishes",
+        "Amount": "50"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2009-02-14 00:00:00",
+        "Latitude": "18.445",
+        "Longitude": "84.4941666666666",
+        "Depth": 60,
+        "Species name": "croakers",
+        "Amount": "500"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2009-02-14 00:00:00",
+        "Latitude": "18.445",
+        "Longitude": "84.4941666666666",
+        "Depth": 60,
+        "Species name": "indian.mackerel",
+        "Amount": "200"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2009-02-14 00:00:00",
+        "Latitude": "18.445",
+        "Longitude": "84.4941666666666",
+        "Depth": 60,
+        "Species name": "scad",
+        "Amount": "200"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2009-02-14 00:00:00",
+        "Latitude": "18.445",
+        "Longitude": "84.4941666666666",
+        "Depth": 60,
+        "Species name": "carangids",
+        "Amount": 100
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2009-02-19 00:00:00",
+        "Latitude": "18.2408333333333",
+        "Longitude": "84.1616666666666",
+        "Depth": 30,
+        "Species name": "pomfrets",
+        "Amount": "400"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2009-02-19 00:00:00",
+        "Latitude": "18.2408333333333",
+        "Longitude": "84.1616666666666",
+        "Depth": 30,
+        "Species name": "pony.fish",
+        "Amount": 100
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2009-02-12 00:00:00",
+        "Latitude": "17.9936111111111",
+        "Longitude": "83.7744444444444",
+        "Depth": 35,
+        "Species name": "croakers",
+        "Amount": "200"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2009-02-12 00:00:00",
+        "Latitude": "17.9936111111111",
+        "Longitude": "83.7744444444444",
+        "Depth": 35,
+        "Species name": "nemipterids",
+        "Amount": "125"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2009-02-12 00:00:00",
+        "Latitude": "17.9936111111111",
+        "Longitude": "83.7744444444444",
+        "Depth": 35,
+        "Species name": "goat.fishes",
+        "Amount": "125"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2009-02-12 00:00:00",
+        "Latitude": "17.9936111111111",
+        "Longitude": "83.7744444444444",
+        "Depth": 35,
+        "Species name": "indian.mackerel",
+        "Amount": 100
+    },
+    {
+        "Type": "NON-PFZ",
+        "Fishing Date": "2009-03-08 00:00:00",
+        "Latitude": "17.7080555555555",
+        "Longitude": "83.39",
+        "Depth": "20",
+        "Species name": "croakers",
+        "Amount": "50"
+    },
+    {
+        "Type": "NON-PFZ",
+        "Fishing Date": "2009-03-08 00:00:00",
+        "Latitude": "17.7080555555555",
+        "Longitude": "83.39",
+        "Depth": "20",
+        "Species name": "nemipterids",
+        "Amount": "20"
+    },
+    {
+        "Type": "NON-PFZ",
+        "Fishing Date": "2009-03-08 00:00:00",
+        "Latitude": "17.7080555555555",
+        "Longitude": "83.39",
+        "Depth": "20",
+        "Species name": "lizard.fish",
+        "Amount": 10
+    },
+    {
+        "Type": "NON-PFZ",
+        "Fishing Date": "2009-03-08 00:00:00",
+        "Latitude": "17.7080555555555",
+        "Longitude": "83.39",
+        "Depth": "20",
+        "Species name": "pony.fish",
+        "Amount": 10
+    },
+    {
+        "Type": "NON-PFZ",
+        "Fishing Date": "2009-03-08 00:00:00",
+        "Latitude": "17.7080555555555",
+        "Longitude": "83.39",
+        "Depth": "20",
+        "Species name": "squids",
+        "Amount": "5"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2009-03-10 00:00:00",
+        "Latitude": "17.6908333333333",
+        "Longitude": "83.4719444444444",
+        "Depth": "50",
+        "Species name": "lizard.fish",
+        "Amount": "20"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2009-03-10 00:00:00",
+        "Latitude": "17.6908333333333",
+        "Longitude": "83.4719444444444",
+        "Depth": "50",
+        "Species name": "nemipterids",
+        "Amount": "20"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2009-03-10 00:00:00",
+        "Latitude": "17.6908333333333",
+        "Longitude": "83.4719444444444",
+        "Depth": "50",
+        "Species name": "anchovies",
+        "Amount": "5"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2009-03-10 00:00:00",
+        "Latitude": "17.6908333333333",
+        "Longitude": "83.4719444444444",
+        "Depth": "50",
+        "Species name": "peaenid.prawns",
+        "Amount": "1"
+    },
+    {
+        "Type": "NON-PFZ",
+        "Fishing Date": "2009-03-10 00:00:00",
+        "Latitude": "17.6383333333333",
+        "Longitude": "83.3983333333333",
+        "Depth": 35,
+        "Species name": "lizard.fish",
+        "Amount": 10
+    },
+    {
+        "Type": "NON-PFZ",
+        "Fishing Date": "2009-03-10 00:00:00",
+        "Latitude": "17.6383333333333",
+        "Longitude": "83.3983333333333",
+        "Depth": 35,
+        "Species name": "pony.fish",
+        "Amount": "5"
+    },
+    {
+        "Type": "NON-PFZ",
+        "Fishing Date": "2009-03-10 00:00:00",
+        "Latitude": "17.6383333333333",
+        "Longitude": "83.3983333333333",
+        "Depth": 35,
+        "Species name": "squids",
+        "Amount": "2"
+    },
+    {
+        "Type": "NON-PFZ",
+        "Fishing Date": "2009-03-10 00:00:00",
+        "Latitude": "17.6383333333333",
+        "Longitude": "83.3983333333333",
+        "Depth": 35,
+        "Species name": "nemipterids",
+        "Amount": "1"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2009-03-06 00:00:00",
+        "Latitude": "17.6380555555555",
+        "Longitude": "83.3030555555555",
+        "Depth": 18,
+        "Species name": "pony.fish",
+        "Amount": 30
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2009-03-06 00:00:00",
+        "Latitude": "17.6380555555555",
+        "Longitude": "83.3030555555555",
+        "Depth": 18,
+        "Species name": "lizard.fish",
+        "Amount": "20"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2009-03-06 00:00:00",
+        "Latitude": "17.6380555555555",
+        "Longitude": "83.3030555555555",
+        "Depth": 18,
+        "Species name": "ribbon.fish",
+        "Amount": 10
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2009-03-06 00:00:00",
+        "Latitude": "17.6380555555555",
+        "Longitude": "83.3030555555555",
+        "Depth": 18,
+        "Species name": "nemipterids",
+        "Amount": 10
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2009-03-06 00:00:00",
+        "Latitude": "17.6380555555555",
+        "Longitude": "83.3030555555555",
+        "Depth": 18,
+        "Species name": "squids",
+        "Amount": "20"
+    },
+    {
+        "Type": "NON-PFZ",
+        "Fishing Date": "2009-01-20 00:00:00",
+        "Latitude": "17.6143972222222",
+        "Longitude": "83.4424472222222",
+        "Depth": 60,
+        "Species name": "indian.mackerel",
+        "Amount": "350"
+    },
+    {
+        "Type": "NON-PFZ",
+        "Fishing Date": "2009-01-20 00:00:00",
+        "Latitude": "17.6143972222222",
+        "Longitude": "83.4424472222222",
+        "Depth": 60,
+        "Species name": "scad",
+        "Amount": "150"
+    },
+    {
+        "Type": "NON-PFZ",
+        "Fishing Date": "2009-01-20 00:00:00",
+        "Latitude": "17.6143972222222",
+        "Longitude": "83.4424472222222",
+        "Depth": 60,
+        "Species name": "carangids",
+        "Amount": 100
+    },
+    {
+        "Type": "NON-PFZ",
+        "Fishing Date": "2009-01-20 00:00:00",
+        "Latitude": "17.6143972222222",
+        "Longitude": "83.4424472222222",
+        "Depth": 60,
+        "Species name": "nemipterids",
+        "Amount": "200"
+    },
+    {
+        "Type": "NON-PFZ",
+        "Fishing Date": "2009-01-20 00:00:00",
+        "Latitude": "17.6143972222222",
+        "Longitude": "83.4424472222222",
+        "Depth": 60,
+        "Species name": "goat.fishes",
+        "Amount": "200"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2009-03-08 00:00:00",
+        "Latitude": "17.5913888888888",
+        "Longitude": "83.3638888888888",
+        "Depth": "56",
+        "Species name": "pony.fish",
+        "Amount": "1"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2009-03-08 00:00:00",
+        "Latitude": "17.5913888888888",
+        "Longitude": "83.3638888888888",
+        "Depth": "56",
+        "Species name": "lizard.fish",
+        "Amount": 30
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2009-03-08 00:00:00",
+        "Latitude": "17.5913888888888",
+        "Longitude": "83.3638888888888",
+        "Depth": "56",
+        "Species name": "nemipterids",
+        "Amount": 30
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2009-03-08 00:00:00",
+        "Latitude": "17.5913888888888",
+        "Longitude": "83.3638888888888",
+        "Depth": "56",
+        "Species name": "penaenid.prawns",
+        "Amount": 15
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2009-03-08 00:00:00",
+        "Latitude": "17.5913888888888",
+        "Longitude": "83.3638888888888",
+        "Depth": "56",
+        "Species name": "scad",
+        "Amount": 10
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2009-03-08 00:00:00",
+        "Latitude": "17.5913888888888",
+        "Longitude": "83.3638888888888",
+        "Depth": "56",
+        "Species name": "croakers",
+        "Amount": "5"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2008-03-01 00:00:00",
+        "Latitude": "19.49",
+        "Longitude": "71.57",
+        "Depth": "80",
+        "Species name": "priacanthids",
+        "Amount": "0"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2008-03-01 00:00:00",
+        "Latitude": "19.49",
+        "Longitude": "71.57",
+        "Depth": "80",
+        "Species name": "barracuda",
+        "Amount": "0"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2008-03-01 00:00:00",
+        "Latitude": "19.49",
+        "Longitude": "71.57",
+        "Depth": "80",
+        "Species name": "croakers",
+        "Amount": "0"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2008-03-01 00:00:00",
+        "Latitude": "19.49",
+        "Longitude": "71.57",
+        "Depth": "80",
+        "Species name": "cuttle.fish",
+        "Amount": "0"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2008-03-01 00:00:00",
+        "Latitude": "19.49",
+        "Longitude": "71.57",
+        "Depth": "80",
+        "Species name": "squids",
+        "Amount": "0"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2008-03-01 00:00:00",
+        "Latitude": "19.49",
+        "Longitude": "71.57",
+        "Depth": "80",
+        "Species name": "nemipterids",
+        "Amount": "0"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2008-03-01 00:00:00",
+        "Latitude": "19.49",
+        "Longitude": "71.57",
+        "Depth": "80",
+        "Species name": "indian.mackerel",
+        "Amount": "0"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2008-03-01 00:00:00",
+        "Latitude": "19.49",
+        "Longitude": "71.57",
+        "Depth": "80",
+        "Species name": "cat.fish",
+        "Amount": "0"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2008-03-01 00:00:00",
+        "Latitude": "19.49",
+        "Longitude": "71.57",
+        "Depth": "80",
+        "Species name": "penaenid.prawns",
+        "Amount": "0"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2008-03-01 00:00:00",
+        "Latitude": "19.49",
+        "Longitude": "71.57",
+        "Depth": "80",
+        "Species name": "murrel",
+        "Amount": "0"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2008-03-01 00:00:00",
+        "Latitude": "19.49",
+        "Longitude": "71.57",
+        "Depth": "80",
+        "Species name": "horse.mackerel",
+        "Amount": "0"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2008-03-01 00:00:00",
+        "Latitude": "19.49",
+        "Longitude": "71.57",
+        "Depth": "80",
+        "Species name": "emperor.fish",
+        "Amount": "0"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2008-02-15 00:00:00",
+        "Latitude": "19.72",
+        "Longitude": "71.1",
+        "Depth": 70,
+        "Species name": "ribbon.fish",
+        "Amount": "0"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2008-02-15 00:00:00",
+        "Latitude": "19.72",
+        "Longitude": "71.1",
+        "Depth": 70,
+        "Species name": "squids",
+        "Amount": "0"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2008-02-15 00:00:00",
+        "Latitude": "19.72",
+        "Longitude": "71.1",
+        "Depth": 70,
+        "Species name": "croakers",
+        "Amount": "0"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2008-02-15 00:00:00",
+        "Latitude": "19.72",
+        "Longitude": "71.1",
+        "Depth": 70,
+        "Species name": "pomfret",
+        "Amount": "0"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2008-02-15 00:00:00",
+        "Latitude": "19.72",
+        "Longitude": "71.1",
+        "Depth": 70,
+        "Species name": "nemipterids",
+        "Amount": "0"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2008-02-15 00:00:00",
+        "Latitude": "19.72",
+        "Longitude": "71.1",
+        "Depth": 70,
+        "Species name": "spiny.grouper",
+        "Amount": "0"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2008-02-15 00:00:00",
+        "Latitude": "19.72",
+        "Longitude": "71.1",
+        "Depth": 70,
+        "Species name": "cuttle.fish",
+        "Amount": "0"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2008-02-15 00:00:00",
+        "Latitude": "19.72",
+        "Longitude": "71.1",
+        "Depth": 70,
+        "Species name": "lizard.fish",
+        "Amount": "0"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2008-02-15 00:00:00",
+        "Latitude": "19.72",
+        "Longitude": "71.1",
+        "Depth": 70,
+        "Species name": "priacanthids",
+        "Amount": "0"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2008-02-15 00:00:00",
+        "Latitude": "19.72",
+        "Longitude": "71.1",
+        "Depth": 70,
+        "Species name": "seer.fish",
+        "Amount": "0"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2008-02-15 00:00:00",
+        "Latitude": "19.72",
+        "Longitude": "71.1",
+        "Depth": 70,
+        "Species name": "cat.fish",
+        "Amount": "0"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2008-02-15 00:00:00",
+        "Latitude": "19.72",
+        "Longitude": "71.1",
+        "Depth": 70,
+        "Species name": "penaenid.prawns",
+        "Amount": "0"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2008-02-15 00:00:00",
+        "Latitude": "19.72",
+        "Longitude": "71.1",
+        "Depth": 70,
+        "Species name": "non.penaenid.prawns",
+        "Amount": "0"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2008-02-15 00:00:00",
+        "Latitude": "19.72",
+        "Longitude": "71.1",
+        "Depth": 70,
+        "Species name": "crabs",
+        "Amount": "0"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2008-02-15 00:00:00",
+        "Latitude": "19.72",
+        "Longitude": "71.1",
+        "Depth": 70,
+        "Species name": "eel",
+        "Amount": "0"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2008-02-10 00:00:00",
+        "Latitude": "19.724295",
+        "Longitude": "71.09827",
+        "Depth": 70,
+        "Species name": "ribbon.fish",
+        "Amount": "0"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2008-02-10 00:00:00",
+        "Latitude": "19.724295",
+        "Longitude": "71.09827",
+        "Depth": 70,
+        "Species name": "squids",
+        "Amount": "0"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2008-02-10 00:00:00",
+        "Latitude": "19.724295",
+        "Longitude": "71.09827",
+        "Depth": 70,
+        "Species name": "croaker",
+        "Amount": "0"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2008-02-10 00:00:00",
+        "Latitude": "19.724295",
+        "Longitude": "71.09827",
+        "Depth": 70,
+        "Species name": "pomfret",
+        "Amount": "0"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2008-02-10 00:00:00",
+        "Latitude": "19.724295",
+        "Longitude": "71.09827",
+        "Depth": 70,
+        "Species name": "penaenid.prawns",
+        "Amount": "0"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2008-02-10 00:00:00",
+        "Latitude": "19.724295",
+        "Longitude": "71.09827",
+        "Depth": 70,
+        "Species name": "eel",
+        "Amount": "0"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2008-02-10 00:00:00",
+        "Latitude": "19.724295",
+        "Longitude": "71.09827",
+        "Depth": 70,
+        "Species name": "pomfret",
+        "Amount": "0"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2008-02-10 00:00:00",
+        "Latitude": "19.724295",
+        "Longitude": "71.09827",
+        "Depth": 70,
+        "Species name": "cat.fish",
+        "Amount": "0"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2008-02-10 00:00:00",
+        "Latitude": "19.724295",
+        "Longitude": "71.09827",
+        "Depth": 70,
+        "Species name": "barracuda",
+        "Amount": "0"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2008-02-10 00:00:00",
+        "Latitude": "19.724295",
+        "Longitude": "71.09827",
+        "Depth": 70,
+        "Species name": "hilsa",
+        "Amount": "0"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2008-02-10 00:00:00",
+        "Latitude": "19.724295",
+        "Longitude": "71.09827",
+        "Depth": 70,
+        "Species name": "crabs",
+        "Amount": "0"
+    },
+    {
+        "Type": "NON-PFZ",
+        "Fishing Date": "2008-03-03 00:00:00",
+        "Latitude": "19.4553555556",
+        "Longitude": "69.8526444444",
+        "Depth": "300",
+        "Species name": "other.tuna",
+        "Amount": "0"
+    },
+    {
+        "Type": "NON-PFZ",
+        "Fishing Date": "2008-03-03 00:00:00",
+        "Latitude": "19.4553555556",
+        "Longitude": "69.8526444444",
+        "Depth": "300",
+        "Species name": "shark",
+        "Amount": "0"
+    },
+    {
+        "Type": "NON-PFZ",
+        "Fishing Date": "2008-03-03 00:00:00",
+        "Latitude": "19.4553555556",
+        "Longitude": "69.8526444444",
+        "Depth": "300",
+        "Species name": "horse.mackerel",
+        "Amount": "0"
+    },
+    {
+        "Type": "NON-PFZ",
+        "Fishing Date": "2008-03-03 00:00:00",
+        "Latitude": "19.4553555556",
+        "Longitude": "69.8526444444",
+        "Depth": "300",
+        "Species name": "cow.ray",
+        "Amount": "0"
+    },
+    {
+        "Type": "NON-PFZ",
+        "Fishing Date": "2007-11-19 00:00:00",
+        "Latitude": "20.255625",
+        "Longitude": "70.68625",
+        "Depth": 30,
+        "Species name": "grouper",
+        "Amount": "0"
+    },
+    {
+        "Type": "NON-PFZ",
+        "Fishing Date": "2007-11-19 00:00:00",
+        "Latitude": "20.255625",
+        "Longitude": "70.68625",
+        "Depth": 30,
+        "Species name": "emperor.fish",
+        "Amount": "0"
+    },
+    {
+        "Type": "NON-PFZ",
+        "Fishing Date": "2007-11-19 00:00:00",
+        "Latitude": "20.255625",
+        "Longitude": "70.68625",
+        "Depth": 30,
+        "Species name": "tuna",
+        "Amount": "0"
+    },
+    {
+        "Type": "NON-PFZ",
+        "Fishing Date": "2007-11-19 00:00:00",
+        "Latitude": "20.255625",
+        "Longitude": "70.68625",
+        "Depth": 30,
+        "Species name": "seer.fish",
+        "Amount": "0"
+    },
+    {
+        "Type": "NON-PFZ",
+        "Fishing Date": "2007-11-19 00:00:00",
+        "Latitude": "20.255625",
+        "Longitude": "70.68625",
+        "Depth": 30,
+        "Species name": "nemipterids",
+        "Amount": "0"
+    },
+    {
+        "Type": "NON-PFZ",
+        "Fishing Date": "2007-11-19 00:00:00",
+        "Latitude": "20.255625",
+        "Longitude": "70.68625",
+        "Depth": 30,
+        "Species name": "lizard.fish",
+        "Amount": "0"
+    },
+    {
+        "Type": "NON-PFZ",
+        "Fishing Date": "2007-11-19 00:00:00",
+        "Latitude": "20.255625",
+        "Longitude": "70.68625",
+        "Depth": 30,
+        "Species name": "lion.fish",
+        "Amount": "0"
+    },
+    {
+        "Type": "NON-PFZ",
+        "Fishing Date": "2007-11-19 00:00:00",
+        "Latitude": "20.255625",
+        "Longitude": "70.68625",
+        "Depth": 30,
+        "Species name": "croakers",
+        "Amount": "0"
+    },
+    {
+        "Type": "NON-PFZ",
+        "Fishing Date": "2007-11-19 00:00:00",
+        "Latitude": "20.255625",
+        "Longitude": "70.68625",
+        "Depth": 30,
+        "Species name": "pomfret",
+        "Amount": "0"
+    },
+    {
+        "Type": "NON-PFZ",
+        "Fishing Date": "2007-11-19 00:00:00",
+        "Latitude": "20.255625",
+        "Longitude": "70.68625",
+        "Depth": 30,
+        "Species name": "barracuda",
+        "Amount": "0"
+    },
+    {
+        "Type": "NON-PFZ",
+        "Fishing Date": "2007-11-26 00:00:00",
+        "Latitude": "20.3389722222",
+        "Longitude": "70.6864027778",
+        "Depth": 25,
+        "Species name": "croakers",
+        "Amount": "0"
+    },
+    {
+        "Type": "NON-PFZ",
+        "Fishing Date": "2007-11-26 00:00:00",
+        "Latitude": "20.3389722222",
+        "Longitude": "70.6864027778",
+        "Depth": 25,
+        "Species name": "shark",
+        "Amount": "0"
+    },
+    {
+        "Type": "NON-PFZ",
+        "Fishing Date": "2007-11-26 00:00:00",
+        "Latitude": "20.3389722222",
+        "Longitude": "70.6864027778",
+        "Depth": 25,
+        "Species name": "cat.fish",
+        "Amount": "0"
+    },
+    {
+        "Type": "NON-PFZ",
+        "Fishing Date": "2007-11-26 00:00:00",
+        "Latitude": "20.3389722222",
+        "Longitude": "70.6864027778",
+        "Depth": 25,
+        "Species name": "ray",
+        "Amount": "0"
+    },
+    {
+        "Type": "NON-PFZ",
+        "Fishing Date": "2007-11-26 00:00:00",
+        "Latitude": "20.3389722222",
+        "Longitude": "70.6864027778",
+        "Depth": 25,
+        "Species name": "lizard.fish",
+        "Amount": "0"
+    },
+    {
+        "Type": "NON-PFZ",
+        "Fishing Date": "2007-11-26 00:00:00",
+        "Latitude": "20.3389722222",
+        "Longitude": "70.6864027778",
+        "Depth": 25,
+        "Species name": "horse.mackerel",
+        "Amount": "0"
+    },
+    {
+        "Type": "NON-PFZ",
+        "Fishing Date": "2007-11-26 00:00:00",
+        "Latitude": "20.3389722222",
+        "Longitude": "70.6864027778",
+        "Depth": 25,
+        "Species name": "indian.mackerel",
+        "Amount": "0"
+    },
+    {
+        "Type": "NON-PFZ",
+        "Fishing Date": "2007-11-26 00:00:00",
+        "Latitude": "20.3389722222",
+        "Longitude": "70.6864027778",
+        "Depth": 25,
+        "Species name": "emperor.fish",
+        "Amount": "0"
+    },
+    {
+        "Type": "NON-PFZ",
+        "Fishing Date": "2007-11-26 00:00:00",
+        "Latitude": "20.3389722222",
+        "Longitude": "70.6864027778",
+        "Depth": 25,
+        "Species name": "squids",
+        "Amount": "0"
+    },
+    {
+        "Type": "NON-PFZ",
+        "Fishing Date": "2007-11-26 00:00:00",
+        "Latitude": "20.3389722222",
+        "Longitude": "70.6864027778",
+        "Depth": 25,
+        "Species name": "cuttle.fish",
+        "Amount": "0"
+    },
+    {
+        "Type": "NON-PFZ",
+        "Fishing Date": "2007-11-26 00:00:00",
+        "Latitude": "20.3389722222",
+        "Longitude": "70.6864027778",
+        "Depth": 25,
+        "Species name": "pomfret",
+        "Amount": "0"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2008-03-19 00:00:00",
+        "Latitude": "20.4223055556",
+        "Longitude": "70.8530555556",
+        "Depth": "45",
+        "Species name": "lizard.fish",
+        "Amount": "0"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2008-03-19 00:00:00",
+        "Latitude": "20.4223055556",
+        "Longitude": "70.8530555556",
+        "Depth": "45",
+        "Species name": "cuttle.fish",
+        "Amount": "0"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2008-03-19 00:00:00",
+        "Latitude": "20.4223055556",
+        "Longitude": "70.8530555556",
+        "Depth": "45",
+        "Species name": "croakers",
+        "Amount": "0"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2008-03-19 00:00:00",
+        "Latitude": "20.4223055556",
+        "Longitude": "70.8530555556",
+        "Depth": "45",
+        "Species name": "pomfret",
+        "Amount": "0"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2008-03-19 00:00:00",
+        "Latitude": "20.4223055556",
+        "Longitude": "70.8530555556",
+        "Depth": "45",
+        "Species name": "squids",
+        "Amount": "0"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2008-03-19 00:00:00",
+        "Latitude": "20.4223055556",
+        "Longitude": "70.8530555556",
+        "Depth": "45",
+        "Species name": "seer.fish",
+        "Amount": "0"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2008-03-19 00:00:00",
+        "Latitude": "20.4223055556",
+        "Longitude": "70.8530555556",
+        "Depth": "45",
+        "Species name": "octopus",
+        "Amount": "0"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2008-03-19 00:00:00",
+        "Latitude": "20.4223055556",
+        "Longitude": "70.8530555556",
+        "Depth": "45",
+        "Species name": "indian.mackerel",
+        "Amount": "0"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2008-03-19 00:00:00",
+        "Latitude": "20.4223055556",
+        "Longitude": "70.8530555556",
+        "Depth": "45",
+        "Species name": "cat.fish",
+        "Amount": "0"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2008-03-19 00:00:00",
+        "Latitude": "20.4223055556",
+        "Longitude": "70.8530555556",
+        "Depth": "45",
+        "Species name": "pomfret",
+        "Amount": "0"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2008-03-19 00:00:00",
+        "Latitude": "20.4223055556",
+        "Longitude": "70.8530555556",
+        "Depth": "45",
+        "Species name": "nemipterids",
+        "Amount": "0"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2008-03-19 00:00:00",
+        "Latitude": "20.4223055556",
+        "Longitude": "70.8530555556",
+        "Depth": "45",
+        "Species name": "crabs",
+        "Amount": "0"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2008-03-19 00:00:00",
+        "Latitude": "20.4223055556",
+        "Longitude": "70.8530555556",
+        "Depth": "45",
+        "Species name": "cuttle.fish",
+        "Amount": "0"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2008-03-19 00:00:00",
+        "Latitude": "20.4223055556",
+        "Longitude": "70.8530555556",
+        "Depth": "45",
+        "Species name": "peaenid.prawns",
+        "Amount": "0"
+    },
+    {
+        "Type": "NON-PFZ",
+        "Fishing Date": "2010-03-22 00:00:00",
+        "Latitude": "20.4390027778",
+        "Longitude": "69.5859666667",
+        "Depth": 0,
+        "Species name": "no.fish",
+        "Amount": "0"
+    },
+    {
+        "Type": "NON-PFZ",
+        "Fishing Date": "2010-03-27 00:00:00",
+        "Latitude": "20.455675",
+        "Longitude": "69.6193166667",
+        "Depth": 0,
+        "Species name": "no.fish",
+        "Amount": "0"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2010-03-21 00:00:00",
+        "Latitude": "21.6059666667",
+        "Longitude": "68.0689277778",
+        "Depth": 0,
+        "Species name": "no.fish",
+        "Amount": "0"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2010-04-07 00:00:00",
+        "Latitude": "21.7893138889",
+        "Longitude": "69.2025472222",
+        "Depth": 0,
+        "Species name": "no.fish",
+        "Amount": "0"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2010-04-09 00:00:00",
+        "Latitude": "21.9394583333",
+        "Longitude": "68.4689888889",
+        "Depth": 0,
+        "Species name": "no.fish",
+        "Amount": "0"
+    },
+    {
+        "Type": "PFZ",
+        "Fishing Date": "2010-03-10 00:00:00",
+        "Latitude": "20.7557083333",
+        "Longitude": "69.4192472222",
+        "Depth": 0,
+        "Species name": "no.fish",
+        "Amount": "0"
+    },
+    {
+        "Type": "NON-PFZ",
+        "Fishing Date": "2010-04-07 00:00:00",
+        "Latitude": "20.9391805556",
+        "Longitude": "69.3192305556",
+        "Depth": 0,
+        "Species name": "no.fish",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2011-03-03 00:00:00",
+        "Latitude": "17.2196516667",
+        "Longitude": "73.0017566667",
+        "Depth": 0,
+        "Species name": "squids",
+        "Amount": "5"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2011-03-03 00:00:00",
+        "Latitude": "17.2196516667",
+        "Longitude": "73.0017566667",
+        "Depth": 0,
+        "Species name": "peaenid.prawns",
+        "Amount": 30
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2011-01-16 00:00:00",
+        "Latitude": "19.69578",
+        "Longitude": "71.0829033333",
+        "Depth": 0,
+        "Species name": "non.peaenid.prawns",
+        "Amount": "20"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2011-01-16 00:00:00",
+        "Latitude": "19.69578",
+        "Longitude": "71.0829033333",
+        "Depth": 0,
+        "Species name": "peaenid.prawns",
+        "Amount": "3"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2011-01-16 00:00:00",
+        "Latitude": "19.69578",
+        "Longitude": "71.0829033333",
+        "Depth": 0,
+        "Species name": "croakers",
+        "Amount": "5"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2011-03-06 00:00:00",
+        "Latitude": "19.6979283333",
+        "Longitude": "71.0904566667",
+        "Depth": 0,
+        "Species name": "non.peaenid.prawns",
+        "Amount": "20"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2011-03-06 00:00:00",
+        "Latitude": "19.6979283333",
+        "Longitude": "71.0904566667",
+        "Depth": 0,
+        "Species name": "croakers",
+        "Amount": "5"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2011-03-06 00:00:00",
+        "Latitude": "19.6979283333",
+        "Longitude": "71.0904566667",
+        "Depth": 0,
+        "Species name": "peaenid.prawns",
+        "Amount": "3"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2011-01-16 00:00:00",
+        "Latitude": "19.6994783333",
+        "Longitude": "71.0765983333",
+        "Depth": 0,
+        "Species name": "non.peaenid.prawns",
+        "Amount": "55"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2011-01-16 00:00:00",
+        "Latitude": "19.6994783333",
+        "Longitude": "71.0765983333",
+        "Depth": 0,
+        "Species name": "peaenid.shrimps",
+        "Amount": "3"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2011-01-16 00:00:00",
+        "Latitude": "19.6994783333",
+        "Longitude": "71.0765983333",
+        "Depth": 0,
+        "Species name": "croakers",
+        "Amount": "5"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2011-03-06 00:00:00",
+        "Latitude": "19.7083966667",
+        "Longitude": "71.106725",
+        "Depth": 0,
+        "Species name": "non.peaenid.prawns",
+        "Amount": "55"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2011-03-06 00:00:00",
+        "Latitude": "19.7083966667",
+        "Longitude": "71.106725",
+        "Depth": 0,
+        "Species name": "peaenid.prawns",
+        "Amount": "3"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2011-03-06 00:00:00",
+        "Latitude": "19.7083966667",
+        "Longitude": "71.106725",
+        "Depth": 0,
+        "Species name": "croakers",
+        "Amount": "5"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-08-25 06:50:00",
+        "Latitude": "21.11",
+        "Longitude": "88.51",
+        "Depth": 20,
+        "Species name": "hilsa",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-08-25 06:50:00",
+        "Latitude": "21.11",
+        "Longitude": "88.51",
+        "Depth": 20,
+        "Species name": "pomfret",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-08-25 06:50:00",
+        "Latitude": "21.11",
+        "Longitude": "88.51",
+        "Depth": 20,
+        "Species name": "cat.fish",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-08-26 12:30:00",
+        "Latitude": "21.24",
+        "Longitude": "88.82",
+        "Depth": 35,
+        "Species name": "hilsa,",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-08-30 06:30:00",
+        "Latitude": "21.63",
+        "Longitude": "88.21",
+        "Depth": 12,
+        "Species name": "hilsa,",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-08-31 06:00:00",
+        "Latitude": "21.15",
+        "Longitude": "88.43",
+        "Depth": 15,
+        "Species name": "hilsa",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-08-31 06:00:00",
+        "Latitude": "21.15",
+        "Longitude": "88.43",
+        "Depth": 15,
+        "Species name": "cat.fish",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-08-31 06:00:00",
+        "Latitude": "21.15",
+        "Longitude": "88.43",
+        "Depth": 15,
+        "Species name": "miscellaneous",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-09-04 08:00:00",
+        "Latitude": "21.7",
+        "Longitude": "88.33",
+        "Depth": 9,
+        "Species name": "hilsa,",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-09-09 18:00:00",
+        "Latitude": "21.2",
+        "Longitude": "88.91",
+        "Depth": 21,
+        "Species name": "hilsa,",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-09-10 03:00:00",
+        "Latitude": "21.44",
+        "Longitude": "89.24",
+        "Depth": 19,
+        "Species name": "hilsa",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-09-10 03:00:00",
+        "Latitude": "21.44",
+        "Longitude": "89.24",
+        "Depth": 19,
+        "Species name": "polynemid",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-09-10 03:00:00",
+        "Latitude": "21.44",
+        "Longitude": "89.24",
+        "Depth": 19,
+        "Species name": "hilsa",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-09-10 03:00:00",
+        "Latitude": "21.44",
+        "Longitude": "89.24",
+        "Depth": 19,
+        "Species name": "anchovy",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-09-11 06:00:00",
+        "Latitude": "21.47",
+        "Longitude": "89.04",
+        "Depth": 18,
+        "Species name": "hilsa",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-09-11 06:00:00",
+        "Latitude": "21.47",
+        "Longitude": "89.04",
+        "Depth": 18,
+        "Species name": "flat.fish",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-09-11 06:00:00",
+        "Latitude": "21.47",
+        "Longitude": "89.04",
+        "Depth": 18,
+        "Species name": "croakers",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-09-12 06:00:00",
+        "Latitude": "21.16",
+        "Longitude": "88.89",
+        "Depth": 12,
+        "Species name": "hilsa",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-09-12 06:00:00",
+        "Latitude": "21.16",
+        "Longitude": "88.89",
+        "Depth": 12,
+        "Species name": "croakers",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-08-28 05:00:00",
+        "Latitude": "11.9452",
+        "Longitude": "92.9424805555555",
+        "Depth": 60,
+        "Species name": "coral.grouper",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-08-28 05:00:00",
+        "Latitude": "11.9452",
+        "Longitude": "92.9424805555555",
+        "Depth": 60,
+        "Species name": "lutjanid",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-08-28 05:00:00",
+        "Latitude": "11.9452",
+        "Longitude": "92.9424805555555",
+        "Depth": 60,
+        "Species name": "grouper",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-08-28 05:00:00",
+        "Latitude": "11.9452",
+        "Longitude": "92.9424805555555",
+        "Depth": 60,
+        "Species name": "coronation.grouper",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-08-29 03:00:00",
+        "Latitude": "11.920325",
+        "Longitude": "92.9723194444444",
+        "Depth": 60,
+        "Species name": "coral.grouper",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-08-29 03:00:00",
+        "Latitude": "11.920325",
+        "Longitude": "92.9723194444444",
+        "Depth": 60,
+        "Species name": "lethrinid lentjan",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-08-29 03:00:00",
+        "Latitude": "11.920325",
+        "Longitude": "92.9723194444444",
+        "Depth": 60,
+        "Species name": "greasy.grouper",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-08-29 03:00:00",
+        "Latitude": "11.920325",
+        "Longitude": "92.9723194444444",
+        "Depth": 60,
+        "Species name": "areolate.grouper",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-08-29 04:00:00",
+        "Latitude": "11.6809277777777",
+        "Longitude": "92.5283611111111",
+        "Depth": 60,
+        "Species name": "coral.grouper",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-08-29 04:00:00",
+        "Latitude": "11.6809277777777",
+        "Longitude": "92.5283611111111",
+        "Depth": 60,
+        "Species name": "areolate.grouper",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-08-29 04:00:00",
+        "Latitude": "11.6809277777777",
+        "Longitude": "92.5283611111111",
+        "Depth": 60,
+        "Species name": "coronation.grouper",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-08-29 04:00:00",
+        "Latitude": "11.6809277777777",
+        "Longitude": "92.5283611111111",
+        "Depth": 60,
+        "Species name": "lyretail.grouper,",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-08-29 05:00:00",
+        "Latitude": "11.6985194444444",
+        "Longitude": "92.5119583333333",
+        "Depth": 60,
+        "Species name": "coral.grouper",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-08-26 00:00:00",
+        "Latitude": "11.6985194444444",
+        "Longitude": "92.5119583333333",
+        "Depth": 60,
+        "Species name": "greasy.grouper",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-08-27 00:00:00",
+        "Latitude": "11.6985194444444",
+        "Longitude": "92.5119583333333",
+        "Depth": 60,
+        "Species name": "baarracuda",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-08-28 00:00:00",
+        "Latitude": "11.6985194444444",
+        "Longitude": "92.5119583333333",
+        "Depth": 60,
+        "Species name": "coronation.grouper",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-08-29 05:00:00",
+        "Latitude": "11.6985194444444",
+        "Longitude": "92.5119583333333",
+        "Depth": 60,
+        "Species name": "lethrinids ,",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-08-28 00:00:00",
+        "Latitude": "11.7130944444444",
+        "Longitude": "92.5059083333333",
+        "Depth": 70,
+        "Species name": "baarracuda",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-08-29 00:00:00",
+        "Latitude": "11.7130944444444",
+        "Longitude": "92.5059083333333",
+        "Depth": 70,
+        "Species name": "greasy.grouper,",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-08-30 03:00:00",
+        "Latitude": "11.7130944444444",
+        "Longitude": "92.5059083333333",
+        "Depth": 70,
+        "Species name": "coronation.grouper,",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-08-31 01:00:00",
+        "Latitude": "11.7088888888888",
+        "Longitude": "92.7601277777777",
+        "Depth": 10,
+        "Species name": "sardine",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-08-31 01:00:00",
+        "Latitude": "11.7088888888888",
+        "Longitude": "92.7601277777777",
+        "Depth": 10,
+        "Species name": "yellowtail.scad",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-08-31 01:00:00",
+        "Latitude": "11.7088888888888",
+        "Longitude": "92.7601277777777",
+        "Depth": 10,
+        "Species name": "barracuda,",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-12-18 09:00:00",
+        "Latitude": "12.6432638888888",
+        "Longitude": "92.6652444444444",
+        "Depth": 35,
+        "Species name": "leiognathid",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-12-18 09:00:00",
+        "Latitude": "12.6432638888888",
+        "Longitude": "92.6652444444444",
+        "Depth": 35,
+        "Species name": "pony.fish",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-12-18 09:00:00",
+        "Latitude": "12.6432638888888",
+        "Longitude": "92.6652444444444",
+        "Depth": 35,
+        "Species name": "clupeids",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-12-18 09:00:00",
+        "Latitude": "12.6432638888888",
+        "Longitude": "92.6652444444444",
+        "Depth": 35,
+        "Species name": "lutjanids",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-12-18 09:00:00",
+        "Latitude": "12.6432638888888",
+        "Longitude": "92.6652444444444",
+        "Depth": 35,
+        "Species name": "flat.fish",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-12-18 09:00:00",
+        "Latitude": "12.6432638888888",
+        "Longitude": "92.6652444444444",
+        "Depth": 35,
+        "Species name": "goat.fish",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-12-18 09:00:00",
+        "Latitude": "12.6432638888888",
+        "Longitude": "92.6652444444444",
+        "Depth": 35,
+        "Species name": "croakers",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-12-18 09:00:00",
+        "Latitude": "12.6432638888888",
+        "Longitude": "92.6652444444444",
+        "Depth": 35,
+        "Species name": "misc",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-12-18 17:00:00",
+        "Latitude": "12.5872805555555",
+        "Longitude": "92.642325",
+        "Depth": 35,
+        "Species name": "leiognathids",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-12-18 17:00:00",
+        "Latitude": "12.5872805555555",
+        "Longitude": "92.642325",
+        "Depth": 35,
+        "Species name": "pony.fish",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-12-18 17:00:00",
+        "Latitude": "12.5872805555555",
+        "Longitude": "92.642325",
+        "Depth": 35,
+        "Species name": "clupeids",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-12-18 17:00:00",
+        "Latitude": "12.5872805555555",
+        "Longitude": "92.642325",
+        "Depth": 35,
+        "Species name": "carangids",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-12-18 17:00:00",
+        "Latitude": "12.5872805555555",
+        "Longitude": "92.642325",
+        "Depth": 35,
+        "Species name": "nemipterids",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-12-18 17:00:00",
+        "Latitude": "12.5872805555555",
+        "Longitude": "92.642325",
+        "Depth": 35,
+        "Species name": "lutjanids",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-12-18 17:00:00",
+        "Latitude": "12.5872805555555",
+        "Longitude": "92.642325",
+        "Depth": 35,
+        "Species name": "flat.fishes",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-12-18 17:00:00",
+        "Latitude": "12.5872805555555",
+        "Longitude": "92.642325",
+        "Depth": 35,
+        "Species name": "goat.fishes",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-12-18 17:00:00",
+        "Latitude": "12.5872805555555",
+        "Longitude": "92.642325",
+        "Depth": 35,
+        "Species name": "croakers",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-12-18 17:00:00",
+        "Latitude": "12.5872805555555",
+        "Longitude": "92.642325",
+        "Depth": 35,
+        "Species name": "cuttle.fish",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-12-18 17:00:00",
+        "Latitude": "12.5872805555555",
+        "Longitude": "92.642325",
+        "Depth": 35,
+        "Species name": "squids",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-12-18 17:00:00",
+        "Latitude": "12.5872805555555",
+        "Longitude": "92.642325",
+        "Depth": 35,
+        "Species name": "peaenid.prawns",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-12-18 17:00:00",
+        "Latitude": "12.5872805555555",
+        "Longitude": "92.642325",
+        "Depth": 35,
+        "Species name": "miscellaneous",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-12-19 05:00:00",
+        "Latitude": "13.2011277777777",
+        "Longitude": "93.1208055555555",
+        "Depth": 70,
+        "Species name": "groupers",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-12-19 05:00:00",
+        "Latitude": "13.2011277777777",
+        "Longitude": "93.1208055555555",
+        "Depth": 70,
+        "Species name": "coral.grouper",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-12-19 05:00:00",
+        "Latitude": "13.2011277777777",
+        "Longitude": "93.1208055555555",
+        "Depth": 70,
+        "Species name": "lethrinids",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-12-19 05:00:00",
+        "Latitude": "13.2011277777777",
+        "Longitude": "93.1208055555555",
+        "Depth": 70,
+        "Species name": "lutjanids",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-12-19 04:00:00",
+        "Latitude": "11.6003333333333",
+        "Longitude": "92.3509722222222",
+        "Depth": 100,
+        "Species name": "groupers",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-12-19 04:00:00",
+        "Latitude": "11.6003333333333",
+        "Longitude": "92.3509722222222",
+        "Depth": 100,
+        "Species name": "coral.groupers",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-12-19 04:00:00",
+        "Latitude": "11.6003333333333",
+        "Longitude": "92.3509722222222",
+        "Depth": 100,
+        "Species name": "lutjanids",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-12-19 04:30:00",
+        "Latitude": "11.5672388888888",
+        "Longitude": "92.3453888888888",
+        "Depth": 120,
+        "Species name": "groupers",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-12-19 04:30:00",
+        "Latitude": "11.5672388888888",
+        "Longitude": "92.3453888888888",
+        "Depth": 120,
+        "Species name": "coral.groupers",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-12-19 04:30:00",
+        "Latitude": "11.5672388888888",
+        "Longitude": "92.3453888888888",
+        "Depth": 120,
+        "Species name": "lutjanids",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-12-21 07:00:00",
+        "Latitude": "13.4622833333333",
+        "Longitude": "92.8543888888888",
+        "Depth": 35,
+        "Species name": "indian.mackerel",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-12-23 06:00:00",
+        "Latitude": "12.2496638888888",
+        "Longitude": "93.1275138888888",
+        "Depth": 25,
+        "Species name": "indian.mackerel",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-12-23 06:00:00",
+        "Latitude": "12.2496638888888",
+        "Longitude": "93.1275138888888",
+        "Depth": 25,
+        "Species name": "oil.sardine",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-12-23 11:00:00",
+        "Latitude": "11.9057777777777",
+        "Longitude": "92.8115555555555",
+        "Depth": 25,
+        "Species name": "yellowtail.scad",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-12-23 11:00:00",
+        "Latitude": "11.9057777777777",
+        "Longitude": "92.8115555555555",
+        "Depth": 25,
+        "Species name": "indian.scad",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-12-25 08:00:00",
+        "Latitude": "11.6664138888888",
+        "Longitude": "92.7616944444444",
+        "Depth": 27,
+        "Species name": "indian.mackerel",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-12-25 08:00:00",
+        "Latitude": "11.6664138888888",
+        "Longitude": "92.7616944444444",
+        "Depth": 27,
+        "Species name": "yellowtail.scad",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-12-25 14:00:00",
+        "Latitude": "11.4885833333333",
+        "Longitude": "92.6915833333333",
+        "Depth": 30,
+        "Species name": "yellowtail.scad",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-12-25 14:00:00",
+        "Latitude": "11.4885833333333",
+        "Longitude": "92.6915833333333",
+        "Depth": 30,
+        "Species name": "indian.scad",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-12-29 00:30:00",
+        "Latitude": "13.651",
+        "Longitude": "93.0046111111111",
+        "Depth": 120,
+        "Species name": "yellowfin.tuna",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-12-29 00:30:00",
+        "Latitude": "13.651",
+        "Longitude": "93.0046111111111",
+        "Depth": 120,
+        "Species name": "skipjack.tuna",
+        "Amount": "0"
+    },
+    {
+        "Type": "Researcher/Miscellaneous",
+        "Fishing Date": "2013-12-29 00:30:00",
+        "Latitude": "13.651",
+        "Longitude": "93.0046111111111",
+        "Depth": 120,
+        "Species name": "king.fish",
+        "Amount": "0"
+    }
+]
