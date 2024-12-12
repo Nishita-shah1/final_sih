@@ -1,24 +1,29 @@
 /* eslint-disable */
-
 'use client';
 import React, { useState, useEffect, useMemo, ChangeEvent } from 'react';
 import { Line } from 'react-chartjs-2';
 import { Pie } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, ArcElement } from 'chart.js';
-
+import DynamicInsights from "@/components/DynamicInsights";
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, ArcElement);
+
 
 type FilterState = {
   pfz: string;
   fishingDate: string;
-  latitude: string;
-  longitude: string;
-  depth: string;
+  startlatitude: string;
+  endlatitude: string;
+  startlongitude: string;
+  endlongitude: string;
+  startdepth: string;
+  enddepth: string;
   species: string;
   amount: string;
 };
 
+
 type DataRow = [string, string, string, string, string, string, string];
+
 
 const Page: React.FC = () => {
   const [csvData, setCsvData] = useState<DataRow[]>([]);
@@ -29,17 +34,23 @@ const Page: React.FC = () => {
   const [uploading, setUploading] = useState<boolean>(false);
   const [username, setUsername] = useState<string>('user123');
 
+
   const [filters, setFilters] = useState<FilterState>({
     pfz: '',
     fishingDate: '',
-    latitude: '',
-    longitude: '',
-    depth: '',
+    startlatitude: '',
+    endlatitude: '',
+    startlongitude: '',
+    endlongitude: '',
+    startdepth: '',
+    enddepth: '',
     species: '',
     amount: '',
   });
 
+
   const [showGraphs, setShowGraphs] = useState<boolean>(false); // New state to toggle graphs
+
 
   useEffect(() => {
     const savedData = localStorage.getItem(`csvData_${username}`);
@@ -54,12 +65,13 @@ const Page: React.FC = () => {
     }
   }, [username]);
 
+
   useEffect(() => {
     if (csvData.length > 0) {
       localStorage.setItem(`csvData_${username}`, JSON.stringify(csvData));
     }
   }, [csvData, username]);
-
+ 
   const handleFileUpload = (event: ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (!file) {
@@ -70,6 +82,7 @@ const Page: React.FC = () => {
       setErrorMessage('Please upload a valid CSV file.');
       return;
     }
+
 
     setIsLoading(true);
     const reader = new FileReader();
@@ -94,6 +107,7 @@ const Page: React.FC = () => {
     reader.readAsText(file);
   };
 
+
   const handleFilterChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setFilters((prevFilters) => ({
@@ -102,16 +116,27 @@ const Page: React.FC = () => {
     }));
   };
 
+
   const filteredResults = useMemo(() => {
     try {
       return csvData.filter(([pfz, fishingDate, latitude, longitude, depth, species, amount]) => {
         const matchPfz = filters.pfz ? pfz.toLowerCase().includes(filters.pfz.toLowerCase()) : true;
         const matchFishingDate = filters.fishingDate ? fishingDate.includes(filters.fishingDate) : true;
-        const matchLatitude = filters.latitude ? latitude.includes(filters.latitude) : true;
-        const matchLongitude = filters.longitude ? longitude.includes(filters.longitude) : true;
-        const matchDepth = filters.depth ? depth.includes(filters.depth) : true;
+        // const matchLatitude = filters.latitude ? latitude.includes(filters.latitude) : true;
+        const matchLatitude =
+          (!filters.startlatitude || parseFloat(latitude) >= parseFloat(filters.startlatitude)) &&
+          (!filters.endlatitude || parseFloat(latitude) <= parseFloat(filters.endlatitude));
+        const matchLongitude =
+          (!filters.startlongitude || parseFloat(longitude) >= parseFloat(filters.startlongitude)) &&
+          (!filters.endlongitude || parseFloat(longitude) <= parseFloat(filters.endlongitude));
+        //const matchLongitude = filters.longitude ? longitude.includes(filters.longitude) : true;
+        //const matchDepth = filters.depth ? depth.includes(filters.depth) : true;
+        const matchDepth =
+        (!filters.startdepth || parseFloat(depth) >= parseFloat(filters.startdepth)) &&
+        (!filters.enddepth || parseFloat(depth) <= parseFloat(filters.enddepth));
         const matchSpecies = filters.species ? species.toLowerCase().includes(filters.species.toLowerCase()) : true;
         const matchAmount = filters.amount ? amount.includes(filters.amount) : true;
+
 
         return matchPfz && matchFishingDate && matchLatitude && matchLongitude && matchDepth && matchSpecies && matchAmount;
       });
@@ -121,20 +146,26 @@ const Page: React.FC = () => {
     }
   }, [csvData, filters]);
 
+
   useEffect(() => {
     setFilteredData(filteredResults);
   }, [filteredResults]);
+
 
   const renderFilters = () => {
     const filterFields: { name: keyof FilterState; placeholder: string; type?: string }[] = [
       { name: 'pfz', placeholder: 'PFZ' },
       { name: 'fishingDate', placeholder: 'Fishing Date', type: 'date' },
-      { name: 'latitude', placeholder: 'Latitude' },
-      { name: 'longitude', placeholder: 'Longitude' },
-      { name: 'depth', placeholder: 'Depth' },
+      { name: 'startlatitude', placeholder: 'Start Latitude' },
+      { name: 'endlatitude', placeholder: 'End Latitude' },
+      { name: 'startlongitude', placeholder: 'Start Longitude' },
+      { name: 'endlongitude', placeholder: 'End Longitude' },
+      { name: 'startdepth', placeholder: 'Start Depth' },
+      { name: 'enddepth', placeholder: 'End Depth' },
       { name: 'species', placeholder: 'Species' },
       { name: 'amount', placeholder: 'Amount' },
     ];
+
 
     return filterFields.map(({ name, placeholder, type = 'text' }) => (
       <input
@@ -148,9 +179,11 @@ const Page: React.FC = () => {
     ));
   };
 
+
   const toggleGraphs = () => {
     setShowGraphs(!showGraphs);
   };
+
 
   // Graph data preparation
   const lineChartData = {
@@ -166,6 +199,7 @@ const Page: React.FC = () => {
       },
     ],
   };
+
 
   const pieChartData = {
     labels: filteredData.map((row) => row[5]), // Using species as labels
@@ -184,11 +218,13 @@ const Page: React.FC = () => {
         }, [] as { label: string; value: number }[]).map((entry) => entry.value),
         backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0'],
         hoverOffset: 4,
-        
+       
+
 
       },
     ],
   };
+
 
   const fish_vs_lat = {
     labels: filteredData.map((row) => row[5]), // Using fish name as the label
@@ -217,12 +253,14 @@ const Page: React.FC = () => {
     ],
   };
 
+
   return (
     <div className="min-h-screen bg-gray-100 p-8 flex">
       <aside className="w-1/4 bg-white shadow p-4 rounded-lg sticky top-8 h-fit">
       <h2 className="text-lg font-bold mb-4">Filters</h2>
   {renderFilters()}
 </aside>
+
 
       <main className="flex-1 ml-8">
         <h1 className="text-2xl font-bold mb-4">Fish Catch Data</h1>
@@ -235,7 +273,9 @@ const Page: React.FC = () => {
           />
         </div>
 
+
         {generalError && <div className="text-red-500">{generalError}</div>}
+
 
         <div className="mb-4">
           <button
@@ -246,18 +286,122 @@ const Page: React.FC = () => {
           </button>
         </div>
 
+
         {showGraphs && (
-          <div className="mb-4">
-            <h3 className="text-xl font-bold mb-2">abundance for fish</h3>
-            <Line data={lineChartData} />
-            <h3 className="text-xl font-bold mb-2">fish vs longitude</h3>
-            <Line data={fish_vs_lat} />
-            <h3 className="text-xl font-bold mb-2">fish vs latitude</h3>
-            <Line data={fish_vs_long} />
-            <h3 className="text-xl font-bold mb-2 mt-8">Pie Chart</h3>
-            <Pie data={pieChartData} />
-          </div>
-        )}
+  <div className="mb-4">
+    {/* Line Chart - Total Catch Weight */}
+    <DynamicInsights
+      title="Total Catch Weight Over Time"
+      graphType="line"
+      data={lineChartData}
+      calculateInsights={() => {
+        const totalWeight = filteredData.reduce((sum, row) => {
+          const weight = parseFloat(row[6]);
+          return !isNaN(weight) ? sum + weight : sum;
+        }, 0);
+     
+        // Validate and extract years from the fishingDate column
+        const years = filteredData
+          .map((row) => {
+            const date = row[1]; // fishingDate
+            return date && date.includes('-') ? date.split("-")[0] : null; // Extract the year
+          })
+          .filter((year) => year && !isNaN(parseInt(year, 10))) // Filter valid years
+          .map((year) => parseInt(year, 10)); // Convert to numbers for range calculation
+     
+       
+     
+        return [
+          `Total catch weight: ${totalWeight.toFixed(2)} kg`,
+          `Data points analyzed: ${filteredData.length}`,
+        ];
+      }}
+     
+     
+    />
+
+
+    {/* Line Chart - Species vs Longitude */}
+    <DynamicInsights
+      title="Fish Species vs Latitude"
+      graphType="line"
+      data={fish_vs_lat}
+      calculateInsights={() => {
+        // Extract and validate latitudes
+        const latitudes = filteredData
+          .map((row) => parseFloat(row[3])) // Convert latitude to a number
+          .filter((lat) => !isNaN(lat)); // Filter out invalid numbers
+     
+        const latRange = latitudes.length > 0
+          ? `${Math.min(...latitudes).toFixed(2)} - ${Math.max(...latitudes).toFixed(2)}`
+          : "N/A"; // Compute range only if there are valid latitudes
+     
+        const uniqueSpecies = new Set(filteredData.map((row) => row[5])).size;
+     
+        return [
+          `Latitude range: ${latRange}`,
+          `Number of unique species: ${uniqueSpecies}`,
+        ];
+      }}
+     
+    />
+
+
+    {/* Line Chart - Species vs Longitude */}
+    <DynamicInsights
+      title="Fish Species vs Longitude"
+      graphType="line"
+      data={fish_vs_long}
+      calculateInsights={() => {
+        // Extract and validate longitudes
+        const longitudes = filteredData
+          .filter((row) => row[2] && !isNaN(parseFloat(row[3]))) // Validate longitude
+          .map((row) => parseFloat(row[2])); // Parse valid longitudes
+     
+        // Compute longitude range
+        const longRange = longitudes.length > 0
+          ? `${Math.min(...longitudes).toFixed(2)} - ${Math.max(...longitudes).toFixed(2)}`
+          : "N/A";
+     
+        // Count unique species
+        const uniqueSpecies = new Set(filteredData.map((row) => row[5])).size;
+     
+        return [
+          `Longitude range: ${longRange}`,
+          `Number of unique species: ${uniqueSpecies}`,
+        ];
+      }}
+     
+    />
+
+
+    {/* Pie Chart - Species Distribution */}
+    <DynamicInsights
+      title="Fish Species Distribution"
+      graphType="pie"
+      data={pieChartData}
+      calculateInsights={() => {
+        const speciesCount = filteredData.reduce((acc, row) => {
+          const species = row[5];
+          acc[species] = (acc[species] || 0) + parseFloat(row[6] || '');
+          return acc;
+        }, {} as Record<string, number>);
+        const mostAbundantSpecies = Object.keys(speciesCount).reduce((a, b) =>
+          speciesCount[a] > speciesCount[b] ? a : b
+        );
+        return [
+          `Most abundant species: ${mostAbundantSpecies}`,
+          `Total species analyzed: ${Object.keys(speciesCount).length}`,
+        ];
+      }}
+    />
+  </div>
+)}
+
+
+
+
+
 
         <div className="overflow-x-auto">
           <table className="table-auto w-full border-collapse">
@@ -300,4 +444,94 @@ const Page: React.FC = () => {
   );
 };
 
+
+
+
 export default Page;
+
+
+
+
+// import React from "react";
+// import { Line } from "react-chartjs-2";
+// import {
+//   Chart as ChartJS,
+//   CategoryScale,
+//   LinearScale,
+//   PointElement,
+//   LineElement,
+//   Title,
+//   Tooltip,
+//   Legend,
+// } from "chart.js";
+
+
+// // Register Chart.js modules
+// ChartJS.register(
+//   CategoryScale,
+//   LinearScale,
+//   PointElement,
+//   LineElement,
+//   Title,
+//   Tooltip,
+//   Legend
+// );
+
+
+// interface GraphProps {
+//   labels: string[];
+//   dataPoints: number[];
+//   title: string;
+// }
+
+
+// const DynamicGraph: React.FC<GraphProps> = ({ labels, dataPoints, title }) => {
+//   // Data for the graph
+//   const data = {
+//     labels: labels,
+//     datasets: [
+//       {
+//         label: title,
+//         data: dataPoints,
+//         borderColor: "rgba(75, 192, 192, 1)",
+//         backgroundColor: "rgba(75, 192, 192, 0.2)",
+//         borderWidth: 2,
+//       },
+//     ],
+//   };
+
+
+//   // Configuration options for the graph
+//   const options = {
+//     responsive: true,
+//     plugins: {
+//       legend: {
+//         position: "top" as const,
+//       },
+//       title: {
+//         display: true,
+//         text: title,
+//       },
+//     },
+//   };
+
+
+//   return <Line data={data} options={options} />;
+// };
+
+
+// export default DynamicGraph;
+
+
+// // Usage Example:
+// // Import this component and use it in your page, passing labels and data dynamically:
+// // <DynamicGraph labels={['Jan', 'Feb', 'Mar']} dataPoints={[10, 20, 30]} title="Monthly Sales" />
+
+
+
+
+
+
+
+
+
