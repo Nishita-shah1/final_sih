@@ -1,0 +1,140 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', 'Helvetica', sans-serif; /* Set the sans-serif font */
+  }
+  
+  .dashboard {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  header {
+    background-color: #002855;
+    color: white;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .dashboard-content {
+    display: flex;
+  }
+  
+  .sidebar {
+    width: 200px;
+    background-color: #e1e9f0;
+    padding: 10px;
+  }
+  
+  .sidebar button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 5px;
+    background-color: #7898c6;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .main-content {
+    flex-grow: 1;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+  }
+  
+  .profile-card,
+  .activity-stats,
+  .notifications,
+  .latest-actions {
+    background-color: #f7f9fc;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  .activity-stats,
+  .notifications {
+    grid-column: span 2;
+  }
+  
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .notification-item {
+    padding: 10px 0;
+  }
+  
+  .latest-actions table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .latest-actions th,
+  .latest-actions td {
+    padding: 10px;
+    text-align: left;
+  }
+  
+  .latest-actions tr:nth-child(even) {
+    background-color: #f1f1f1;
+  }
+  
+  .dashboard-container {
+    display: grid;
+    grid-template-areas: 
+      "profile activity"
+      "profile notifications"
+      "latest latest";
+    grid-template-columns: 1fr 2fr;
+    gap: 16px;
+    padding: 20px;
+    background-color: #f3f4f6;
+  }
+  
+  .profile-section {
+    grid-area: profile;
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .activity-section {
+    grid-area: activity;
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .notifications-section {
+    grid-area: notifications;
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .latest-actions-section {
+    grid-area: latest;
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Responsive layout for small screens */
+  @media (max-width: 710px) {
+    .dashboard-container {
+      grid-template-areas: 
+        "profile"
+        "activity"
+        "notifications"
+        "latest"; /* Stack each section vertically */
+      grid-template-columns: 1fr; /* Single column layout */
+    }
+  }

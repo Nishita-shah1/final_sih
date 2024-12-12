@@ -1,7 +1,7 @@
-//gallery  page
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation'; // Correct Next.js router import
 
 // Sample Fish Data (replace with actual data from your database)
 const fishData = [
@@ -24,6 +24,13 @@ export default function Gallery() {
     scientificName: '',
   });
 
+  const [isClient, setIsClient] = useState(false);
+  const router = useRouter();
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   // Function to handle filter changes
   const handleFilterChange = (e) => {
     const { name, value } = e.target;
@@ -37,6 +44,8 @@ export default function Gallery() {
     const matchType = filters.type ? fish.type === filters.type : true;
     return matchFishName && matchScientificName && matchType;
   });
+
+  if (!isClient) return null;
 
   return (
     <div className="container mx-auto p-6">
@@ -78,12 +87,23 @@ export default function Gallery() {
             </select>
           </div>
         </div>
-        <button
-          onClick={() => setFilters({ fishName: '', scientificName: '', type: '' })}
-          className="mt-4 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
-        >
-          Clear Filters
-        </button>
+
+        {/* Buttons */}
+        <div className="flex justify-between">
+          
+
+          <button
+            onClick={() => setFilters({ fishName: '', scientificName: '', type: '' })}
+            className="mt-4 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+          >
+            Clear Filters
+          </button><button
+            onClick={() => router.replace('/AdminDashboard')}
+            className="mt-4 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+          >
+            Back to Admin Dashboard
+          </button>
+        </div>
       </div>
 
       {/* Fish Gallery */}

@@ -20,10 +20,17 @@ export default function Navbar() {
         {/* Navigation Links */}
         <div className="flex items-center space-x-6 mb-4 md:mb-0">
           <Link href="/" className="text-white hover:text-slate-100">Home</Link>
-          <Link href="/fileUpload" className="text-white hover:text-slate-100">Table</Link>
+          <Link href="/AdminDashboard" className="text-white hover:text-slate-100">Dashboard</Link>
+          <Link href="/fileUpload" className="text-white hover:text-slate-100">PFZ</Link>
+
+          <Link href="/villagedata" className="text-white hover:text-slate-100">villagedata</Link>
+          <Link href="/table3" className="text-white hover:text-slate-100">capacity</Link>
           <Link href="/gallery" className="text-white hover:text-slate-100">Gallery</Link>
           <Link href="/maps" className="text-white hover:text-slate-100">Maps</Link>
           <Link href="/community" className="text-white hover:text-slate-100">Community</Link>
+
+
+
         </div>
 
         {/* Conditional rendering for session state */}

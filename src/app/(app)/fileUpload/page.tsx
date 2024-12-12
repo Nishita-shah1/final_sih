@@ -176,22 +176,51 @@ const Page: React.FC = () => {
           if (index !== -1) {
             acc[index].value += parseInt(row[6], 10); // Accumulate amounts
           } else {
-            acc.push({ label: species, value: parseInt(row[6], 10) });
+            acc.push({ label: species, value: parseInt(row[6], 8) });
           }
           return acc;
         }, [] as { label: string; value: number }[]).map((entry) => entry.value),
         backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0'],
         hoverOffset: 4,
+        
+
+      },
+    ],
+  };
+
+  const fish_vs_lat = {
+    labels: filteredData.map((row) => row[5]), // Using fish name as the label
+    datasets: [
+      {
+        label: 'Fish name vs latitude',
+        data: filteredData.map((row) => parseInt(row[3], 10)), // Using amount as data
+        fill: false,
+        backgroundColor: 'rgb(75, 192, 192)',
+        borderColor: 'rgba(75, 192, 192, 0.2)',
+        tension: 0.1,
+      },
+    ],
+  };
+  const fish_vs_long = {
+    labels: filteredData.map((row) => row[5]), // Using fish name as the label
+    datasets: [
+      {
+        label: 'Fish name vs latitude',
+        data: filteredData.map((row) => parseInt(row[2], 10)), // Using amount as data
+        fill: false,
+        backgroundColor: 'rgb(75, 192, 192)',
+        borderColor: 'rgba(75, 192, 192, 0.2)',
+        tension: 0.1,
       },
     ],
   };
 
   return (
     <div className="min-h-screen bg-gray-100 p-8 flex">
-      <aside className="w-1/4 bg-white shadow p-4 rounded-lg">
-        <h2 className="text-lg font-bold mb-4">Filters</h2>
-        {renderFilters()}
-      </aside>
+      <aside className="w-1/4 bg-white shadow p-4 rounded-lg sticky top-8 h-fit">
+      <h2 className="text-lg font-bold mb-4">Filters</h2>
+  {renderFilters()}
+</aside>
 
       <main className="flex-1 ml-8">
         <h1 className="text-2xl font-bold mb-4">Fish Catch Data</h1>
@@ -217,8 +246,12 @@ const Page: React.FC = () => {
 
         {showGraphs && (
           <div className="mb-4">
-            <h3 className="text-xl font-bold mb-2">Line Chart</h3>
+            <h3 className="text-xl font-bold mb-2">abundance for fish</h3>
             <Line data={lineChartData} />
+            <h3 className="text-xl font-bold mb-2">fish vs longitude</h3>
+            <Line data={fish_vs_lat} />
+            <h3 className="text-xl font-bold mb-2">fish vs latitude</h3>
+            <Line data={fish_vs_long} />
             <h3 className="text-xl font-bold mb-2 mt-8">Pie Chart</h3>
             <Pie data={pieChartData} />
           </div>
