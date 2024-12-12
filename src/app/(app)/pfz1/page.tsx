@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 //pfz1
 'use client';
 

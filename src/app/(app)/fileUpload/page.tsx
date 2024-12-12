@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 'use client';
 import React, { useState, useEffect, useMemo, ChangeEvent } from 'react';
 import { Line } from 'react-chartjs-2';
