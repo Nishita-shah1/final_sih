@@ -1,0 +1,40 @@
+.filter-sidebar {
+    background-color: #9eb0c6;
+    padding: 20px;
+    color: #000000;
+    width: 300px;
+    border-radius: 8px;
+  }
+  
+  .filter-section {
+    margin-bottom: 20px;
+  }
+  
+  .date-picker-wrapper {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .species-select {
+    margin-top: 10px;
+  }
+  
+  .selected-species {
+    margin-top: 10px;
+  }
+  
+  .species-tag {
+    display: inline-block;
+    background-color: #0d2b5d;
+    color: #fff;
+    border-radius: 4px;
+    padding: 5px 10px;
+    margin-right: 5px;
+    cursor: pointer;
+  }
+  
+  .slider-values {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+  }

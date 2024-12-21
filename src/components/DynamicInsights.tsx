@@ -4,8 +4,20 @@ import { Line, Pie } from "react-chartjs-2";
 
 interface DynamicInsightsProps {
   title: string;
-  graphType: "line" | "pie";
-  data: any;
+  graphType: "line" | "bar" | "pie"; // Add any other graph types if needed
+  data: {
+    labels: string[];
+    datasets: {
+      label: string;
+      data: number[];
+      fill:Boolean;
+      backgroundColor: string;
+      borderColor: string;
+      tension:number;
+      hoverOffset?: number;
+    }[];
+  };
+  options?: any;
   calculateInsights: () => string[];
 }
 

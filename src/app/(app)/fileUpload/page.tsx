@@ -1,8 +1,7 @@
 /* eslint-disable */
 'use client';
 import React, { useState, useEffect, useMemo, ChangeEvent } from 'react';
-import { Line } from 'react-chartjs-2';
-import { Pie } from 'react-chartjs-2';
+
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, ArcElement } from 'chart.js';
 import DynamicInsights from "@/components/DynamicInsights";
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, ArcElement);
@@ -22,6 +21,7 @@ type FilterState = {
 };
 
 
+
 type DataRow = [string, string, string, string, string, string, string];
 
 
@@ -33,6 +33,9 @@ const Page: React.FC = () => {
   const [generalError, setGeneralError] = useState<string | null>(null);
   const [uploading, setUploading] = useState<boolean>(false);
   const [username, setUsername] = useState<string>('user123');
+  const [sampleData, setSampleData] = useState<DataRow[]>([]); // State to hold sample data
+  const [showGraphs, setShowGraphs] = useState<boolean>(false); // New state to toggle graphs
+
 
 
   const [filters, setFilters] = useState<FilterState>({
@@ -48,8 +51,23 @@ const Page: React.FC = () => {
     amount: '',
   });
 
+  const loadSampleData = async () => {
+    try {
+      const response = await fetch('/pfz_new.csv'); // Path to sample CSV in public directory
+      const text = await response.text();
+      const rows = text
+        .split('\n')
+        .map((row) => row.split(',').map((cell) => cell.trim())) as DataRow[];
+      setSampleData(rows);
+      setCsvData(rows);
+      setFilteredData(rows);
+    } catch (error) {
+      setGeneralError('Error loading sample data.');
+    }
+  };
 
-  const [showGraphs, setShowGraphs] = useState<boolean>(false); // New state to toggle graphs
+  
+
 
 
   useEffect(() => {
@@ -84,6 +102,7 @@ const Page: React.FC = () => {
     }
 
 
+
     setIsLoading(true);
     const reader = new FileReader();
     reader.onload = (e) => {
@@ -115,6 +134,7 @@ const Page: React.FC = () => {
       [name]: value,
     }));
   };
+  
 
 
   const filteredResults = useMemo(() => {
@@ -201,29 +221,7 @@ const Page: React.FC = () => {
   };
 
 
-  const pieChartData = {
-    labels: filteredData.map((row) => row[5]), // Using species as labels
-    datasets: [
-      {
-        label: 'Fish Species Distribution',
-        data: filteredData.reduce((acc, row) => {
-          const species = row[5];
-          const index = acc.findIndex((entry) => entry.label === species);
-          if (index !== -1) {
-            acc[index].value += parseInt(row[6], 10); // Accumulate amounts
-          } else {
-            acc.push({ label: species, value: parseInt(row[6], 8) });
-          }
-          return acc;
-        }, [] as { label: string; value: number }[]).map((entry) => entry.value),
-        backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0'],
-        hoverOffset: 4,
-       
 
-
-      },
-    ],
-  };
 
 
   const fish_vs_lat = {
@@ -271,6 +269,12 @@ const Page: React.FC = () => {
             onChange={handleFileUpload}
             className="border p-2 mb-2"
           />
+          <button
+        onClick={loadSampleData}
+        className="bg-green-500 text-white py-2 px-4 rounded-md mb-4"
+      >
+        Show Sample Data
+      </button>
         </div>
 
 
@@ -320,31 +324,28 @@ const Page: React.FC = () => {
      
     />
 
+<DynamicInsights
+  title="Fish Species vs Latitude"
+  graphType="line"
+  data={fish_vs_lat }// Example for extracting dataset values
+  calculateInsights={() => {
+    const latitudes = filteredData
+      .map((row) => parseFloat(row[3]))
+      .filter((lat) => !isNaN(lat)); // Filter out invalid latitudes
 
-    {/* Line Chart - Species vs Longitude */}
-    <DynamicInsights
-      title="Fish Species vs Latitude"
-      graphType="line"
-      data={fish_vs_lat}
-      calculateInsights={() => {
-        // Extract and validate latitudes
-        const latitudes = filteredData
-          .map((row) => parseFloat(row[3])) // Convert latitude to a number
-          .filter((lat) => !isNaN(lat)); // Filter out invalid numbers
-     
-        const latRange = latitudes.length > 0
-          ? `${Math.min(...latitudes).toFixed(2)} - ${Math.max(...latitudes).toFixed(2)}`
-          : "N/A"; // Compute range only if there are valid latitudes
-     
-        const uniqueSpecies = new Set(filteredData.map((row) => row[5])).size;
-     
-        return [
-          `Latitude range: ${latRange}`,
-          `Number of unique species: ${uniqueSpecies}`,
-        ];
-      }}
-     
-    />
+    const latRange = latitudes.length > 0
+      ? `${Math.min(...latitudes).toFixed(2)} - ${Math.max(...latitudes).toFixed(2)}`
+      : 'N/A'; // Compute range only if there are valid latitudes
+
+    const uniqueSpecies = new Set(filteredData.map((row) => row[5])).size;
+
+    return [
+      `Latitude range: ${latRange}`,
+      `Number of unique species: ${uniqueSpecies}`,
+    ];
+  }}
+/>
+
 
 
     {/* Line Chart - Species vs Longitude */}
@@ -373,28 +374,10 @@ const Page: React.FC = () => {
       }}
      
     />
+    
 
-
-    {/* Pie Chart - Species Distribution */}
-    <DynamicInsights
-      title="Fish Species Distribution"
-      graphType="pie"
-      data={pieChartData}
-      calculateInsights={() => {
-        const speciesCount = filteredData.reduce((acc, row) => {
-          const species = row[5];
-          acc[species] = (acc[species] || 0) + parseFloat(row[6] || '');
-          return acc;
-        }, {} as Record<string, number>);
-        const mostAbundantSpecies = Object.keys(speciesCount).reduce((a, b) =>
-          speciesCount[a] > speciesCount[b] ? a : b
-        );
-        return [
-          `Most abundant species: ${mostAbundantSpecies}`,
-          `Total species analyzed: ${Object.keys(speciesCount).length}`,
-        ];
-      }}
-    />
+  
+      
   </div>
 )}
 
@@ -443,95 +426,4 @@ const Page: React.FC = () => {
     </div>
   );
 };
-
-
-
-
 export default Page;
-
-
-
-
-// import React from "react";
-// import { Line } from "react-chartjs-2";
-// import {
-//   Chart as ChartJS,
-//   CategoryScale,
-//   LinearScale,
-//   PointElement,
-//   LineElement,
-//   Title,
-//   Tooltip,
-//   Legend,
-// } from "chart.js";
-
-
-// // Register Chart.js modules
-// ChartJS.register(
-//   CategoryScale,
-//   LinearScale,
-//   PointElement,
-//   LineElement,
-//   Title,
-//   Tooltip,
-//   Legend
-// );
-
-
-// interface GraphProps {
-//   labels: string[];
-//   dataPoints: number[];
-//   title: string;
-// }
-
-
-// const DynamicGraph: React.FC<GraphProps> = ({ labels, dataPoints, title }) => {
-//   // Data for the graph
-//   const data = {
-//     labels: labels,
-//     datasets: [
-//       {
-//         label: title,
-//         data: dataPoints,
-//         borderColor: "rgba(75, 192, 192, 1)",
-//         backgroundColor: "rgba(75, 192, 192, 0.2)",
-//         borderWidth: 2,
-//       },
-//     ],
-//   };
-
-
-//   // Configuration options for the graph
-//   const options = {
-//     responsive: true,
-//     plugins: {
-//       legend: {
-//         position: "top" as const,
-//       },
-//       title: {
-//         display: true,
-//         text: title,
-//       },
-//     },
-//   };
-
-
-//   return <Line data={data} options={options} />;
-// };
-
-
-// export default DynamicGraph;
-
-
-// // Usage Example:
-// // Import this component and use it in your page, passing labels and data dynamically:
-// // <DynamicGraph labels={['Jan', 'Feb', 'Mar']} dataPoints={[10, 20, 30]} title="Monthly Sales" />
-
-
-
-
-
-
-
-
-
